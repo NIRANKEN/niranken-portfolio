@@ -3,6 +3,7 @@ import { Header } from 'components/molecules/Header';
 import React from 'react';
 import { Skill } from './Skill';
 
+// TODO: 互い違いで段々にするのもおもろいかも
 export const MainSkills = () => (
   <>
     <Header title={'3つのアピールポイント'} explanation={''} />
