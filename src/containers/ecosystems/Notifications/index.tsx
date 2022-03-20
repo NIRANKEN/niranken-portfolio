@@ -4,7 +4,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { operations, selectors } from 'ducks/notifications';
 import { useDispatch, useSelector } from 'react-redux';
-import { SimpleBackdrop } from 'components/molecules/Backdrop';
 import { useEffect } from 'react';
 import { AppDispatch } from 'store';
 import { Header } from 'components/molecules/Header';
@@ -13,6 +12,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import { CircularProgress } from 'components/atoms/CircularProgress';
 
 export const Notifications: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -38,7 +38,7 @@ export const Notifications: React.FC = () => {
             <ListItemText primary="お知らせ一覧(最新順)" />
           </ListItem>
           {isLoading() ? (
-            <SimpleBackdrop />
+            <CircularProgress />
           ) : 
             <Grid container spacing={2} p={2}>
               {notifications.map((notification) => (

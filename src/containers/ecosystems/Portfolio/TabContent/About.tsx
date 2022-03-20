@@ -8,7 +8,7 @@ export const About = () => (
     {/* 
       * エンジニア歴 != プログラム書いてきた歴。
     */}
-    <Header title='自己紹介・価値観・趣味' explanation='こういう人間なんすよ、好き={A, B, C} 嫌い={D, E, F}' />
+    <Header iconName='about' title='自己紹介・価値観・趣味' explanation='こういう人間なんすよ、好き={A, B, C} 嫌い={D, E, F}みたいに説明する？考え中' />
     <Typography>
       色々手を付けます。
     </Typography>
