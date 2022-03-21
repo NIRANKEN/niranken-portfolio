@@ -1,3 +1,4 @@
+import { CardMedia } from '@mui/material';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -8,6 +9,8 @@ import React from 'react';
 type SkillProps = {
   appeal: string;
   detail: string;
+  imagePath: string;
+  imageHeight: string;
   // gifResource: object;
 };
 
@@ -15,8 +18,10 @@ type SkillProps = {
 export const Skill: React.FC<SkillProps> = ({
   appeal,
   detail,
+  imagePath,
+  imageHeight,
 }: SkillProps) => (
-  <>
+  <Box mt={1}>
     <Grid container spacing={2}>
       <Grid item xs={6}>
         <Box mt={2}>
@@ -24,7 +29,7 @@ export const Skill: React.FC<SkillProps> = ({
             <Box fontWeight="fontWeightBold" fontSize="h6.fontSize">
               {appeal}
             </Box>
-            <Box mt={4}>{detail}</Box>
+            <Box mt={4} whiteSpace="pre-line">{detail}</Box>
           </Typography>
         </Box>
       </Grid>
@@ -34,8 +39,17 @@ export const Skill: React.FC<SkillProps> = ({
           <CardContent>
             <Typography>ここにgifとか説明キャプチャを置く</Typography>
           </CardContent>
+          <CardMedia
+            component="img"
+            image={imagePath}
+            height={imageHeight}
+            sx={{
+              p: 1,
+              m: 1
+            }}
+          />
         </Card>
       </Grid>
     </Grid>
-  </>
+  </Box>
 );

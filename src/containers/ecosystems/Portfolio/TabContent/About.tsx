@@ -1,23 +1,32 @@
-import { Typography } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 import { Header } from 'components/molecules/Header';
 import React from 'react';
 
 export const About = () => (
   <>
-    {/* 自分がどういう人間(?)なのかを伝える */}
-    {/* 
-      * エンジニア歴 != プログラム書いてきた歴。
-    */}
-    <Header iconName='about' title='自己紹介・価値観・趣味' explanation='こういう人間なんすよ、好き={A, B, C} 嫌い={D, E, F}みたいに説明する？考え中' />
-    <Typography>
-      色々手を付けます。
-    </Typography>
-    <Typography>
-      開発しにくい、ストレス溜まる環境で開発し続けることに疑問を投げかけながら、開発環境やCI/CDの改善にも目をつけて日々開発に勤しんでおります。
-    </Typography>
-    <Typography>
-      だって、不便な環境から良い製品や良い機能は創造されないと思うから。
-    </Typography>
+    <Header iconName='about' title='自己紹介・価値観・趣味' explanation='' />
+    <Box mt={2}>
+      <Grid container direction='row' spacing={2}>
+        <Grid item xs={3}>
+          <Avatar alt='にらんけん' src='/static/images/profile.png' sx={{
+            height: '128px',
+            width: '128px',
+          }}/>
+        </Grid>
+        <Grid item xs={9}>
+          <Box whiteSpace='pre-line'>
+            <Typography>
+              {`こんにちは、にらんけんです。ここで自由に自己紹介。
+              こういう人間なんすよ、を説明する。
+              `}
+            </Typography>
+          </Box>
+        </Grid>
+      </Grid>
+    </Box>
     {/*
       <Box># このProjectのやることリスト</Box>
       <Box> - 情報を埋める</Box>
