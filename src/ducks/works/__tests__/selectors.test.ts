@@ -1,17 +1,20 @@
 import { selectors } from '../selectors';
 import { createInitialRootState } from 'store/__utils__';
-import { Notification } from '../Notification';
+import { Work } from '../Work';
 
-describe('notifications', () => {
-  const notification1: Notification = {
+describe('works', () => {
+  const work1: Work = {
     id: 'dummy-id',
-		content: 'HPが更新されました',
-		writtenBy: 'NIRANKEN',
+    ord: 1,
+    category: 'dummy-category',
+    work: 'dummy-work',
+    detail: 'dummy-detail',
 		writtenAt: '2021-08-01',
+		writtenBy: 'NIRANKEN',
   };
   describe('selector', () => {
     const state = createInitialRootState({
-      notifications: {
+      works: {
         readAll: {
           status: 'rejected',
           error: { message: 'readAll' },
@@ -21,7 +24,7 @@ describe('notifications', () => {
           error: { message: 'read' },
         },
         entities: {
-          id1: notification1,
+          id1: work1,
         },
         ids: ['id1'],
       },
@@ -44,10 +47,10 @@ describe('notifications', () => {
         });
       });
     });
-    describe('notification', () => {
-      it('should return notification', () => {
-        const notification = selectors.notification('id1')(state);
-        expect(notification).toEqual(notification1);
+    describe('work', () => {
+      it('should return work', () => {
+        const work = selectors.work('id1')(state);
+        expect(work).toEqual(work1);
       });
     });
   });

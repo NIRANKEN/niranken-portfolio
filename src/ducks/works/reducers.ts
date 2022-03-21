@@ -4,9 +4,9 @@ import {
 } from '@reduxjs/toolkit';
 import { actions } from './actions';
 import { initialRequestResult } from '../../lib/RequestResult';
-import { Notification } from './Notification';
+import { Work } from './Work';
 
-export const entityAdapter = createEntityAdapter<Notification>({
+export const entityAdapter = createEntityAdapter<Work>({
   // selectId: (notification) => notification.idProp; // IDとなるプロパティを指定できます(デフォルト: id)
   // sortComparer: (a, b) => a.someNumber - b.someNumber, // 数値昇順
   // sortComparer: (a, b) => b.someNumber - a.someNumber, // 数値降順
@@ -22,7 +22,7 @@ export const initialState = entityAdapter.getInitialState({
   read: initialRequestResult,
 });
 
-export type NotificationsState = typeof initialState;
+export type WorksState = typeof initialState;
 
 /**
  * ここに各アクション実行結果に基づいて、storeをどうやって更新するかについて記載します。
@@ -40,7 +40,7 @@ export const reducer = createReducer(initialState, (builder) => {
       },
     }))
     .addCase(actions.readAll.fulfilled, (state, { payload }) => {
-      return entityAdapter.setAll<NotificationsState>(
+      return entityAdapter.setAll<WorksState>(
         {
           ...state,
           readAll: {
@@ -66,7 +66,7 @@ export const reducer = createReducer(initialState, (builder) => {
       },
     }))
     .addCase(actions.read.fulfilled, (state, { payload }) => {
-      return entityAdapter.upsertOne<NotificationsState>(
+      return entityAdapter.upsertOne<WorksState>(
         {
           ...state,
           readAll: {

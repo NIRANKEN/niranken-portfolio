@@ -1,5 +1,5 @@
 import * as service from '../service';
-import { Notification } from '../Notification';
+import { Work } from '../Work';
 import { actions } from '../actions';
 
 jest.mock('../service', () => ({
@@ -7,7 +7,7 @@ jest.mock('../service', () => ({
   read: jest.fn(),
 }));
 
-describe('notifications', () => {
+describe('works', () => {
   const mockedDispatch = jest.fn();
   const mockedGetState = jest.fn();
   const mockedReadAll = service.readAll as jest.Mock;
@@ -19,7 +19,7 @@ describe('notifications', () => {
   describe('actions', () => {
 		describe('readAll', () => {
       it('should return Information', async () => {
-        const json: Notification[] = [];
+        const json: Work[] = [];
         mockedReadAll.mockResolvedValueOnce({
           status: 200,
           json: () => json,
@@ -31,7 +31,7 @@ describe('notifications', () => {
           undefined
         );
         expect(payload).toEqual(json);
-        expect(type).toEqual('notifications/readAll/fulfilled');
+        expect(type).toEqual('works/readAll/fulfilled');
       });
       it('should throw error', async () => {
         const message = 'Forbidden';
@@ -48,13 +48,13 @@ describe('notifications', () => {
         expect(payload).toEqual({
           message,
         });
-        expect(type).toEqual('notifications/readAll/rejected');
+        expect(type).toEqual('works/readAll/rejected');
       });
 		});
     describe('read', () => {
 			const notificationId = 'dummy-id';
       it('should return Information', async () => {
-        const json: Notification[] = [];
+        const json: Work[] = [];
         mockedRead.mockResolvedValueOnce({
           status: 200,
           json: () => json,
@@ -66,7 +66,7 @@ describe('notifications', () => {
           undefined
         );
         expect(payload).toEqual(json);
-        expect(type).toEqual('notifications/read/fulfilled');
+        expect(type).toEqual('works/read/fulfilled');
       });
       it('should throw error', async () => {
         const message = 'Forbidden';
@@ -83,7 +83,7 @@ describe('notifications', () => {
         expect(payload).toEqual({
           message,
         });
-        expect(type).toEqual('notifications/read/rejected');
+        expect(type).toEqual('works/read/rejected');
       });
     });
   });
