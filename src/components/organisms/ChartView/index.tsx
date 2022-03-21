@@ -23,7 +23,7 @@ export const ChartView: React.FC<ChartViewProps> = ({ chart }: ChartViewProps) =
   return (
     <ResponsiveContainer width="100%" height="100%">
       <ComposedChart
-        width={500}
+        width={820}
         height={360}
         data={chart.results.map((result) => {
           const data: ChartData = {
