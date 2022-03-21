@@ -1,17 +1,31 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Header } from 'components/molecules/Header';
+import { ChartView } from 'components/organisms/ChartView';
+import { mockedSkills } from 'ducks/skills/mockedFrontSkills';
 import React from 'react';
 
-export const SubSkills = () => (
+export const Skills = () => (
   <>
     {/* その他のアピールポイントのコンポーネントつくる*/}
     <Header
-      iconName="otherSkills"
+      iconName="skills"
       title="スキル一覧"
-      explanation="フォーマットもろもろ整える。グラフとか入れちゃう？"
+      explanation="フォーマットもろもろを整える。グラフにしちゃう？"
     />
     <Box mt={1} whiteSpace="pre-line">
+      {
+        mockedSkills.map(skill => 
+        <>
+          <Box key={skill.id} height={360} width={640} px={2} mt={1}>
+            <ChartView chart={skill} />
+          </Box>
+          <Typography>
+            ここに0~5の説明いれる。こんな感じかな
+          </Typography>
+        </>
+        )
+      }
       <Typography>
         {`
         # フロント

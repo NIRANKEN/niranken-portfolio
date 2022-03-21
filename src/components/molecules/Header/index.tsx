@@ -37,7 +37,7 @@ export const Header: React.FC<HeaderProps> = ({
 const mapping: { [id: string]: JSX.Element } = {
   about: <Face sx={{ fontSize: 'h4.fontSize' }} />,
   works: <PermIdentityIcon sx={{ fontSize: 'h4.fontSize' }} />,
-  skills: <CampaignIcon sx={{ fontSize: 'h4.fontSize' }} />,
-  otherSkills: <NotesIcon sx={{ fontSize: 'h4.fontSize' }} />, 
+  appeals: <CampaignIcon sx={{ fontSize: 'h4.fontSize' }} />,
+  skills: <NotesIcon sx={{ fontSize: 'h4.fontSize' }} />, 
   contact: <Contacts sx={{ fontSize: 'h4.fontSize' }} />,
 }

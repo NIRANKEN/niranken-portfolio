@@ -4,6 +4,7 @@ import { BasicTabs } from 'components/organisms/BasicTabs';
 import { About } from './TabContent/About';
 import { Works } from './TabContent/Works';
 import { Contact } from './TabContent/Contact';
+import { Appeals } from './TabContent/Appeals';
 import { Skills } from './TabContent/Skills';
 import { PageTitle } from 'components/molecules/PageTitle';
 
@@ -23,6 +24,10 @@ export const Portfolio: React.FC = () => {
           {
             title: 'WORKS',
             content: <Works />,
+          },
+          {
+            title: 'APPEALS',
+            content: <Appeals />
           },
           {
             title: 'SKILLS',
