@@ -1,13 +1,13 @@
-import { mockedNotifications } from '../mockedWorks';
+import { mockedWorks } from '../mockedWorks';
 import * as service from '../service';
 
 describe('service', () => {
   it('readAll', async () => {
     const result = await service.readAll();
-    expect(await result.json() as Notification[]).toEqual(mockedNotifications);
+    expect(await result.json() as Notification[]).toEqual(mockedWorks);
   });
   it('read', async() => {
-    const result = await service.read('notificationId1');
-    expect(await result.json() as Notification).toEqual(mockedNotifications[0]);
+    const result = await service.read('workId1');
+    expect(await result.json() as Notification).toEqual(mockedWorks[0]);
   });
 });

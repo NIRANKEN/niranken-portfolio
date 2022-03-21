@@ -1,26 +1,30 @@
 import snapshotDiff from 'snapshot-diff';
 import {
   WorksState,
-  initialState as notificationsInitialState,
+  initialState as worksInitialState,
   reducer,
 } from '../reducers';
 import { actions } from '../actions';
-import { Notification } from '../Work';
+import { Work } from '../Work';
 
 describe('notifications', () => {
-  const notification1: Notification = {
-    id: 'dummy-id',
-    content: 'HPが更新されました',
-    writtenBy: 'NIRANKEN',
-    writtenAt: '2021-08-01',
+  const notification1: Work = {
+    id: 'dummyId',
+    ord: 1,
+    category: 'dummyCategory',
+    work: 'dummyWork',
+    detail: `文1
+    文2`,
+    writtenAt: 'YYYY-MM-DD',
+    writtenBy: 'にらんけん',
   };
   describe('reducer', () => {
-    const notificationId = 'dummy-id';
+    const workId = 'dummyId';
 
     describe('readAll', () => {
       it('should set pending state', () => {
         const initialState: WorksState = {
-          ...notificationsInitialState,
+          ...worksInitialState,
           read: { status: 'rejected', error: { message: 'error' } },
         };
         expect(
@@ -47,7 +51,7 @@ describe('notifications', () => {
       });
       it('should set fulfilled state', () => {
         const initialState: WorksState = {
-          ...notificationsInitialState,
+          ...worksInitialState,
           read: {
             status: 'pending',
             error: undefined,
@@ -67,15 +71,19 @@ describe('notifications', () => {
           -   \\"entities\\": Object {},
           -   \\"ids\\": Array [],
           +   \\"entities\\": Object {
-          +     \\"dummy-id\\": Object {
-          +       \\"content\\": \\"HPが更新されました\\",
-          +       \\"id\\": \\"dummy-id\\",
-          +       \\"writtenAt\\": \\"2021-08-01\\",
-          +       \\"writtenBy\\": \\"NIRANKEN\\",
+          +     \\"dummyId\\": Object {
+          +       \\"category\\": \\"dummyCategory\\",
+          +       \\"detail\\": \\"文1
+          +     文2\\",
+          +       \\"id\\": \\"dummyId\\",
+          +       \\"ord\\": 1,
+          +       \\"work\\": \\"dummyWork\\",
+          +       \\"writtenAt\\": \\"YYYY-MM-DD\\",
+          +       \\"writtenBy\\": \\"にらんけん\\",
           +     },
           +   },
           +   \\"ids\\": Array [
-          +     \\"dummy-id\\",
+          +     \\"dummyId\\",
           +   ],
               \\"read\\": Object {
                 \\"error\\": undefined,
@@ -91,7 +99,7 @@ describe('notifications', () => {
       });
       it('should set rejected state', () => {
         const initialState: WorksState = {
-          ...notificationsInitialState,
+          ...worksInitialState,
           read: {
             status: 'pending',
             error: undefined,
@@ -135,7 +143,7 @@ describe('notifications', () => {
     describe('read', () => {
       it('should set pending state', () => {
         const initialState: WorksState = {
-          ...notificationsInitialState,
+          ...worksInitialState,
           read: { status: 'rejected', error: { message: 'error' } },
         };
         expect(
@@ -143,7 +151,7 @@ describe('notifications', () => {
             initialState,
             reducer(
               initialState,
-              actions.read.pending('requestId', notificationId)
+              actions.read.pending('requestId', workId)
             )
           )
         ).toMatchInlineSnapshot(`
@@ -165,7 +173,7 @@ describe('notifications', () => {
       });
       it('should set fulfilled state', () => {
         const initialState: WorksState = {
-          ...notificationsInitialState,
+          ...worksInitialState,
           read: {
             status: 'pending',
             error: undefined,
@@ -173,7 +181,7 @@ describe('notifications', () => {
         };
         const modifiedState = reducer(
           initialState,
-          actions.read.fulfilled(notification1, 'requestId', notificationId)
+          actions.read.fulfilled(notification1, 'requestId', workId)
         );
         expect(snapshotDiff(initialState, modifiedState))
           .toMatchInlineSnapshot(`
@@ -185,15 +193,19 @@ describe('notifications', () => {
           -   \\"entities\\": Object {},
           -   \\"ids\\": Array [],
           +   \\"entities\\": Object {
-          +     \\"dummy-id\\": Object {
-          +       \\"content\\": \\"HPが更新されました\\",
-          +       \\"id\\": \\"dummy-id\\",
-          +       \\"writtenAt\\": \\"2021-08-01\\",
-          +       \\"writtenBy\\": \\"NIRANKEN\\",
+          +     \\"dummyId\\": Object {
+          +       \\"category\\": \\"dummyCategory\\",
+          +       \\"detail\\": \\"文1
+          +     文2\\",
+          +       \\"id\\": \\"dummyId\\",
+          +       \\"ord\\": 1,
+          +       \\"work\\": \\"dummyWork\\",
+          +       \\"writtenAt\\": \\"YYYY-MM-DD\\",
+          +       \\"writtenBy\\": \\"にらんけん\\",
           +     },
           +   },
           +   \\"ids\\": Array [
-          +     \\"dummy-id\\",
+          +     \\"dummyId\\",
           +   ],
               \\"read\\": Object {
                 \\"error\\": undefined,
@@ -209,7 +221,7 @@ describe('notifications', () => {
       });
       it('should set rejected state', () => {
         const initialState: WorksState = {
-          ...notificationsInitialState,
+          ...worksInitialState,
           read: {
             status: 'pending',
             error: undefined,
@@ -223,7 +235,7 @@ describe('notifications', () => {
               actions.read.rejected(
                 { name: 'name', message: 'message' },
                 'requestId',
-                notificationId
+                workId
               )
             )
           )

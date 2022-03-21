@@ -26,7 +26,7 @@ export const CircularProgress: React.FC<CircularProgressProps> = ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: useWindowHeight ? 'calc(100vh - 64px)' : null,
+        height: useWindowHeight ? 'calc(100vh - 112px)' : null,
       }}
     >
       <MuiCircularProgress {...props} />
