@@ -7,14 +7,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: PreBuild
+        run: |
+          curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -; apt-get update
+
       - name: Checkout
         uses: actions/checkout@main
 
       - name: Install Dependencies
-        run: npm install
+        run: yarn
 
       - name: Build
-        run: npm run build
+        run: yarn build
 
       - name: Deploy
         env:
