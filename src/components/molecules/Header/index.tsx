@@ -1,11 +1,12 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import React from 'react';
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import Face from '@mui/icons-material/Face';
 import Contacts from '@mui/icons-material/Contacts';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import NotesIcon from '@mui/icons-material/Notes';
+import PeopleIcon from '@mui/icons-material/People';
+import PersonIcon from '@mui/icons-material/Person';
 
 type HeaderProps = {
   iconName?: string;
@@ -36,7 +37,8 @@ export const Header: React.FC<HeaderProps> = ({
 // TODO: いちいち定義するのはよろしくないので、sx渡すようにしたい
 const mapping: { [id: string]: JSX.Element } = {
   about: <Face sx={{ fontSize: 'h4.fontSize' }} />,
-  works: <PermIdentityIcon sx={{ fontSize: 'h4.fontSize' }} />,
+  works1: <PeopleIcon sx={{ fontSize: 'h4.fontSize' }} />,
+  works2: <PersonIcon sx={{ fontSize: 'h4.fontSize' }} />,
   appeals: <CampaignIcon sx={{ fontSize: 'h4.fontSize' }} />,
   skills: <NotesIcon sx={{ fontSize: 'h4.fontSize' }} />, 
   contact: <Contacts sx={{ fontSize: 'h4.fontSize' }} />,
