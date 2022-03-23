@@ -5,16 +5,19 @@ export const mockedSkills: Chart[] = [
     id: 'front-end',
     title: 'フロントエンド',
     colorCode: '#abd699',
-    explanation: `# フロント
-      - JavaScript & Sass & Velocity: ゼロからの構築、読み書きできます。
-      - JSP: 読み書きできます。
-      - React & Redux & Material-UI & TypeScript: 読み書きできます。このくらいできます。(URL貼る)
-      - Jest & Cypress: 読み書きできます。
+    explanation: `# フロントエンドの評価点のイメージ
+
+      5 ... 我がこの分野の先駆者だ！
+      4 ... ゼロからの導入や開発環境の構築の経験あり。
+      3 ... 一連の機能を実装したことがある。
+      2 ... 多少わからない部分を調べながら、一通り読み書き経験あり。
+      1 ... 読める・簡易な不具合修正くらいなら経験あり。
+      0 ... 聞いたことあるな～、くらい
       `,
     results: [
       {
         baseAxisValue: 'JS',
-        dataAxisValues: [4],
+        dataAxisValues: [3],
       },
       {
         baseAxisValue: 'Sass',
@@ -26,10 +29,6 @@ export const mockedSkills: Chart[] = [
       },
       {
         baseAxisValue: 'CSS',
-        dataAxisValues: [3],
-      },
-      {
-        baseAxisValue: 'JSP',
         dataAxisValues: [3],
       },
       {
@@ -56,19 +55,23 @@ export const mockedSkills: Chart[] = [
         baseAxisValue: 'Cypress',
         dataAxisValues: [2],
       },
+      {
+        baseAxisValue: 'JSP',
+        dataAxisValues: [2],
+      },
     ],
   },
   {
     id: 'back-end',
     title: 'バックエンド',
-    explanation: `# バックエンド
-      - Java6~8: ゼロからの構築、読み書きできます
-      - SQL: ゼロからの構築、読み書きできます。PL/SQLも書けます。
-      - SpringFramework: 読み書きできます。
-      - JUnit: 読み書きできます。ゼロからの導入経験もあります。
-      - Python3: 読み書きできます。社内ツール作ったり、お遊び(URL貼る)する程度に
-      - TypeScript: 読み書きできます。
-      - C++ & Qt: 研究室時代3年使ってたものの、独学なので。
+    explanation: `# バックエンドの評価点イメージ
+
+      5 ... 我がこの分野の先駆者だ！
+      4 ... ゼロからの導入や開発環境の構築の経験あり。
+      3 ... 一連の機能を実装したことがある。
+      2 ... 多少わからない部分を調べながら、一通り読み書き経験あり。
+      1 ... 読める・簡易な不具合修正くらいなら経験あり。
+      0 ... 聞いたことあるな～、くらい
       `,
     colorCode: '#75c9b7',
     results: [
@@ -77,15 +80,15 @@ export const mockedSkills: Chart[] = [
         dataAxisValues: [4],
       },
       {
+        baseAxisValue: 'JUnit',
+        dataAxisValues: [4],
+      },
+      {
         baseAxisValue: 'SQL',
         dataAxisValues: [4],
       },
       {
-        baseAxisValue: 'SpringFramework',
-        dataAxisValues: [3],
-      },
-      {
-        baseAxisValue: 'JUnit',
+        baseAxisValue: 'Spring',
         dataAxisValues: [3],
       },
       {
@@ -98,20 +101,21 @@ export const mockedSkills: Chart[] = [
       },
       {
         baseAxisValue: 'C++',
-        dataAxisValues: [1],
+        dataAxisValues: [2],
       },
     ],
   },
   {
     id: 'infra',
     title: 'インフラ',
-    explanation: `# インフラまわり
-      - Linux: 研究室時代含めて、かれこれ7年くらい使ってます。cronやservice仕込んだり、トラブルシュートできます。
-      - Windows: サービス設定したり、イベントログとったり、タスクスケジューラ仕込んだり。
-      - Oracle: ログ読みやトラブルシュート、設定修正(initOraなど)、新規構築の経験あり。
-      - tomcat: ログ読みやトラブルシュート、設定修正(conf配下など)、新規構築の経験あり。
-      - nginx: ログ読みやトラブルシュート、設定修正(nginx.confなど)、新規構築の経験あり。
-      - AWS: マネジメントコンソールやAWS CLI使えます。EC2, S3, Lambda, IAM, パラメータストアなどの使用経験あり。
+    explanation: `# インフラまわりの評価点のイメージ
+
+      5 ... 我がこの分野の先駆者だ！
+      4 ... ゼロからサーバーやMWの新規構築の経験がある。
+      3 ... インフラ起因の不具合や、それに関するログ読み・トラブルシュート、解決のための設定値変更の経験がある。
+      2 ... 多少わからない部分を調べながら、不具合調査やconf系ファイルの設定変更の経験がある。
+      1 ... 多少触ったことがあって、アプリでどう使われているのかを把握している。
+      0 ... 聞いたことあるな～、くらい
       `,
     colorCode: '#c7ddcc',
     results: [
@@ -152,14 +156,14 @@ export const mockedSkills: Chart[] = [
   {
     id: 'ci/cd',
     title: 'CI/CD',
-    explanation: `# CI/CD
-      - Bash: ゼロからの構築、読み書きできます。
-      - Jenkins: CI/CDの仕組み構築できます。
-      - Maven: pom.xmlの読み書きできます。
-      - GitLab-CI: CI/CDの仕組み構築できます。
-      - Docker: Jenkinsや、GitLab-CIなどで、JenkinsFile書いたり。
-      - Ansible: 読み書きできます。
-      - cloudformation: 読みと調べながら書きできます。
+    explanation: `# CI/CDの評価点のイメージ
+
+      5 ... 我がこの分野の先駆者だ！
+      4 ... ゼロからの導入や開発環境の構築の経験あり。
+      3 ... 一連の機能やCI/CDフローを実装したことがある。
+      2 ... 多少わからない部分を調べながら、一通り読み書き経験あり。
+      1 ... 読める・簡易な不具合修正くらいなら経験あり。
+      0 ... 聞いたことあるな～、くらい
       `,
     colorCode: '#ffe26a',
     results: [
