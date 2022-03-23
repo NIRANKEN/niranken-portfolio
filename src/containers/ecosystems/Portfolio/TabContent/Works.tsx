@@ -9,6 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import { CircularProgress } from 'components/atoms/CircularProgress';
 import { Header } from 'components/molecules/Header';
 import { operations, selectors } from 'ducks/works';
+import { mockedPersonalWorks } from 'ducks/works/mockedPersonalWorks';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'store';
@@ -34,8 +35,8 @@ export const Works: React.FC = () => {
   return (
     <>
       <Header
-        iconName="works"
-        title="人事さま向けWebアプリケーション開発者時代"
+        iconName="works1"
+        title="人事さま向けWebアプリケーション開発者として"
         explanation=""
       />
       <TableContainer component={Paper}>
@@ -69,6 +70,36 @@ export const Works: React.FC = () => {
           )}
         </Table>
       </TableContainer>
+
+      {/* TODO: works1, works2を別々のコンポーネントで分ける works1とworks2で共通のものは共通化する*/}
+      <Box mt={8}>
+        <Header iconName="works2" title="個人的に作ったもの" explanation="" />
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="left">カテゴリ</TableCell>
+                <TableCell align="left">つくったもの</TableCell>
+                <TableCell align="left">詳細</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {mockedPersonalWorks.map((row) => (
+                <TableRow
+                  key={row.ord}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell align="left">{row.category}</TableCell>
+                  <TableCell align="left">{row.work}</TableCell>
+                  <TableCell align="left">
+                    <Box whiteSpace="pre-line">{row.detail}</Box>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
     </>
   );
 };
