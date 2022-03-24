@@ -30,7 +30,7 @@ export const BasicTabs: React.FC<BasicTabsType> = ({
           aria-label="basic tabs example"
         >
           {basicTabs.map((basicTab, idx) => (
-            <Tab key={`tab-${idx}`} label={basicTab.title} {...a11yProps(idx)} />
+            <Tab data-testid={`portfolio-tab-${idx}`} key={`tab-${idx}`} label={basicTab.title} {...a11yProps(idx)} />
           ))}
         </Tabs>
       </Box>

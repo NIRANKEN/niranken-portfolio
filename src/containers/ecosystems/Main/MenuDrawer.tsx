@@ -24,7 +24,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
   handleClickMenuItem,
 }: MenuDrawerProps) => {
   const MenuListItem = ({ id, name, Icon }: MenuType) => (
-    <ListItem button key={id} onClick={handleClickMenuItem(id, name)}>
+    <ListItem button data-testid={`menu-${id}`} key={id} onClick={handleClickMenuItem(id, name)}>
       <ListItemIcon>
         <Icon />
       </ListItemIcon>
