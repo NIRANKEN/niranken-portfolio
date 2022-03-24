@@ -40,6 +40,7 @@ export const Appeal: React.FC<AppealProps> = ({
             <Typography>ここにgifとか説明キャプチャを置く</Typography>
           </CardContent>
           <CardMedia
+            data-testid="appeals-image"
             component="img"
             image={imagePath}
             height={imageHeight}

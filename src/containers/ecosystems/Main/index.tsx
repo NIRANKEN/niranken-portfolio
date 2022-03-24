@@ -59,6 +59,7 @@ export const Main: React.FC = () => {
       >
         <Toolbar>
           <IconButton
+            data-testid="menu-icon-button"
             edge="start"
             color="inherit"
             aria-label="menu"

@@ -13,7 +13,7 @@ export const Skills = () => (
     <Header iconName="skills" title="スキル一覧" explanation="" />
     <Box mt={1} whiteSpace="pre-line">
       {mockedSkills.map((skill) => (
-        <>
+        <React.Fragment key={skill.id}>
           <Typography component="div">
             <Box fontWeight="fontWeightBold" fontSize="h6.fontSize">
               {skill.title}
@@ -36,7 +36,7 @@ export const Skills = () => (
               </Card>
             </Grid>
           </Grid>
-        </>
+        </React.Fragment>
       ))}
       <Card
         sx={{

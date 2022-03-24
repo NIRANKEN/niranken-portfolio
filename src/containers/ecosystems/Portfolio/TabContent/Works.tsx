@@ -8,30 +8,23 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { CircularProgress } from 'components/atoms/CircularProgress';
 import { Header } from 'components/molecules/Header';
-import { operations, selectors } from 'ducks/works';
 import { mockedPersonalWorks } from 'ducks/works/mockedPersonalWorks';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from 'store';
+import { Work } from 'ducks/works';
+import React from 'react';
+
+type WorksProps = {
+  works: Work[];
+  isLoading: () => boolean;
+};
 
 // ここでは実際に実施したこと、を書いていく
 // TODO: こう書いて、相手方に手を動かすレベルくらいのイメージつくかどうか。
 // TODO: 物理の研究 != Webアプリケーション開発者だよね。
 // TODO: skillsまで書いて、詳細はアコーディオンにする？それともskillsはアコーディオン？やダイアログ？あとは、Stringカンマ区切りじゃなくてEnumリストみたいな形にするか。
-export const Works: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const works = useSelector(selectors.works);
-  const readAllWorksResult = useSelector(selectors.readAllResult);
-
-  useEffect(() => {
-    if (!readAllWorksResult.status) {
-      dispatch(operations.readAll());
-    }
-  }, [dispatch, readAllWorksResult.status]);
-
-  const isLoading = () =>
-    !readAllWorksResult.status || readAllWorksResult.status === 'pending';
-
+export const Works: React.FC<WorksProps> = ({
+  works,
+  isLoading,
+}: WorksProps) => {
   return (
     <>
       <Header
@@ -39,20 +32,21 @@ export const Works: React.FC = () => {
         title="人事さま向けWebアプリケーション開発者として"
         explanation=""
       />
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              {/* TODO: カテゴリでの抽出や日時ソートをつけたい想定 */}
-              <TableCell align="left">カテゴリ</TableCell>
-              <TableCell align="left">仕事内容</TableCell>
-              <TableCell align="left">詳細</TableCell>
-            </TableRow>
-          </TableHead>
-          {isLoading() ? (
-            // TODO: CircularProgressを真ん中に配置する
-            <CircularProgress />
-          ) : (
+
+      {isLoading() ? (
+        // TODO: CircularProgressを真ん中に配置する
+        <CircularProgress />
+      ) : (
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                {/* TODO: カテゴリでの抽出や日時ソートをつけたい想定 */}
+                <TableCell align="left">カテゴリ</TableCell>
+                <TableCell align="left">仕事内容</TableCell>
+                <TableCell align="left">詳細</TableCell>
+              </TableRow>
+            </TableHead>
             <TableBody>
               {works.map((row) => (
                 <TableRow
@@ -67,9 +61,9 @@ export const Works: React.FC = () => {
                 </TableRow>
               ))}
             </TableBody>
-          )}
-        </Table>
-      </TableContainer>
+          </Table>
+        </TableContainer>
+      )}
 
       {/* TODO: works1, works2を別々のコンポーネントで分ける works1とworks2で共通のものは共通化する*/}
       <Box mt={8}>
