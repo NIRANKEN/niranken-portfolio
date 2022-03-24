@@ -14,7 +14,7 @@ export const PageTitle: React.FC<PageTitleProps> = ({
   return (
     <Box mt={2}>
       <Typography component="div">
-        <Box fontWeight="fontWeightBold" fontSize="h3.fontSize">
+        <Box data-testid="title-box" fontWeight="fontWeightBold" fontSize="h3.fontSize">
           {title}
         </Box>
         <Box mt={4}>{explanation}</Box>
