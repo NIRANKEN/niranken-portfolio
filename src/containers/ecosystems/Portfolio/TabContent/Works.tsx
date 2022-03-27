@@ -8,12 +8,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { CircularProgress } from 'components/atoms/CircularProgress';
 import { Header } from 'components/molecules/Header';
-import { mockedPersonalWorks } from 'ducks/works/mockedPersonalWorks';
 import { Work } from 'ducks/works';
 import React from 'react';
 
 type WorksProps = {
   works: Work[];
+  personalWorks: Work[];
   isLoading: () => boolean;
 };
 
@@ -23,6 +23,7 @@ type WorksProps = {
 // TODO: skillsまで書いて、詳細はアコーディオンにする？それともskillsはアコーディオン？やダイアログ？あとは、Stringカンマ区切りじゃなくてEnumリストみたいな形にするか。
 export const Works: React.FC<WorksProps> = ({
   works,
+  personalWorks,
   isLoading,
 }: WorksProps) => {
   return (
@@ -78,7 +79,7 @@ export const Works: React.FC<WorksProps> = ({
               </TableRow>
             </TableHead>
             <TableBody>
-              {mockedPersonalWorks.map((row) => (
+              {personalWorks.map((row) => (
                 <TableRow
                   key={row.ord}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

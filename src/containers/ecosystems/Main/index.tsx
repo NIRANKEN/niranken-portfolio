@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
 import { Home } from '../Home';
 import AppBar from '@mui/material/AppBar';
@@ -12,11 +12,42 @@ import HomeIcon from '@mui/icons-material/Home';
 import PeopleIcon from '@mui/icons-material/People';
 import { MenuType } from './MenuType';
 import { MenuDrawer } from './MenuDrawer';
+import { useLocation } from 'react-router-dom';
+
+type PageTitle = {
+  path: string;
+  title: string;
+};
+
+const titles: PageTitle[] = [
+  {
+    path: '/',
+    title: 'Home',
+  },
+  {
+    path: '/home',
+    title: 'Home',
+  },
+  {
+    path: '/portfolio',
+    title: 'ポートフォリオ',
+  },
+];
 
 export const Main: React.FC = () => {
   const history = useHistory();
-  const [title, setTitle] = React.useState<string>('');
   const [open, setOpen] = React.useState<boolean>(false);
+  const [title, setTitle] = React.useState<string>('');
+  const location = useLocation();
+
+  useEffect(() => {
+    const currentTitle = titles.find(
+      (t) => t.path === location.pathname
+    )?.title;
+    if (currentTitle) {
+      setTitle(currentTitle);
+    }
+  }, [location.pathname]);
 
   const topMenuItems: Array<MenuType> = [
     { id: 'home', name: 'HOME', Icon: HomeIcon, PageComponent: Home },

@@ -1,9 +1,9 @@
-describe('App', () => {
+describe('Main', () => {
   beforeEach(() => {
     cy.viewport(1280, 960);
   });
 
-  it('should open /', () => {
+  it('should open / and should render tab contents', () => {
     cy.log('visit HOME');
     cy.visit('/');
     cy.contains('ホーム').should('be.visible');
@@ -77,4 +77,6 @@ describe('App', () => {
     cy.contains('スキル一覧').should('not.exist');
     cy.contains('連絡先').should('be.visible');
   });
+
+  // TODO: /portfolioで直接ポートフォリオのページに遷移できること
 });

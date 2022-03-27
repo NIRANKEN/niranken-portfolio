@@ -4,15 +4,21 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Header } from 'components/molecules/Header';
 import { ChartView } from 'components/organisms/ChartView';
-import { mockedSkills } from 'ducks/skills/mockedSkills';
+import { Skill } from 'ducks/skills/Skill';
 import React from 'react';
 
-export const Skills = () => (
+type SkillsProps = {
+  skills: Skill[];
+}
+
+export const Skills: React.FC<SkillsProps> = ({
+  skills
+}: SkillsProps) => (
   <>
     {/* TODO: 右のカードの説明は0~5の数値の説明に変更する */}
     <Header iconName="skills" title="スキル一覧" explanation="" />
     <Box mt={1} whiteSpace="pre-line">
-      {mockedSkills.map((skill) => (
+      {skills.map((skill) => (
         <React.Fragment key={skill.id}>
           <Typography component="div">
             <Box fontWeight="fontWeightBold" fontSize="h6.fontSize">

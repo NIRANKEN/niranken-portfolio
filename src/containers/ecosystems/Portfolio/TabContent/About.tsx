@@ -5,15 +5,14 @@ import Grid from '@mui/material/Grid';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { Header } from 'components/molecules/Header';
+import { AboutContent } from 'ducks/about/AboutContent';
 import React from 'react';
 
 type AboutProps = {
-  selfIntroduction: string;
-}
+  aboutContent: AboutContent;
+};
 
-export const About: React.FC<AboutProps> = ({
-  selfIntroduction,
-}: AboutProps) => (
+export const About: React.FC<AboutProps> = ({ aboutContent }: AboutProps) => (
   <>
     <Header iconName="about" title="自己紹介・価値観" explanation="" />
     <Box mt={2}>
@@ -34,7 +33,7 @@ export const About: React.FC<AboutProps> = ({
         <Grid item xs={9}>
           <Box whiteSpace="pre-line">
             <Typography data-testid="self-introduction">
-              {selfIntroduction}
+              {aboutContent.selfIntroduction}
             </Typography>
           </Box>
         </Grid>
