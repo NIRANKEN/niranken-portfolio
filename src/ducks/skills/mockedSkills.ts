@@ -1,6 +1,6 @@
-import { Chart } from '../../components/organisms/ChartView/Chart';
+import { Skill } from './Skill';
 
-export const mockedSkills: Chart[] = [
+export const mockedSkills: Skill[] = [
   {
     id: 'front-end',
     title: 'フロントエンド',
