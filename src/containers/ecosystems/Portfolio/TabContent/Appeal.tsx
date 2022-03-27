@@ -4,22 +4,16 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import { AppealContent } from 'ducks/appeals/AppealContent';
 import React from 'react';
 
 type AppealProps = {
-  appeal: string;
-  detail: string;
-  imagePath: string;
-  imageHeight: string;
-  // gifResource: object;
+  appealContent: AppealContent;
 };
 
 
 export const Appeal: React.FC<AppealProps> = ({
-  appeal,
-  detail,
-  imagePath,
-  imageHeight,
+  appealContent,
 }: AppealProps) => (
   <Box mt={1}>
     <Grid container spacing={2}>
@@ -27,9 +21,9 @@ export const Appeal: React.FC<AppealProps> = ({
         <Box mt={2}>
           <Typography component="div">
             <Box fontWeight="fontWeightBold" fontSize="h6.fontSize">
-              {appeal}
+              {appealContent.appeal}
             </Box>
-            <Box mt={4} whiteSpace="pre-line">{detail}</Box>
+            <Box mt={4} whiteSpace="pre-line">{appealContent.detail}</Box>
           </Typography>
         </Box>
       </Grid>
@@ -37,12 +31,15 @@ export const Appeal: React.FC<AppealProps> = ({
         {/* gifとか写真とか置けるスペースつくる？ */}
         <Card>
           <CardContent>
-            <Typography>ここにgifとか説明キャプチャを置く</Typography>
+            <Box whiteSpace="pre-line">
+              <Typography>{`▼ ${appealContent.imageExplanation}`}</Typography>
+            </Box>
           </CardContent>
           <CardMedia
+            data-testid="appeals-image"
             component="img"
-            image={imagePath}
-            height={imageHeight}
+            image={appealContent.imagePath}
+            height={appealContent.imageHeight}
             sx={{
               p: 1,
               m: 1
