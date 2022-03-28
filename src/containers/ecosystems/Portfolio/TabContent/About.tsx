@@ -1,5 +1,7 @@
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Tooltip from '@mui/material/Tooltip';
@@ -31,11 +33,15 @@ export const About: React.FC<AboutProps> = ({ aboutContent }: AboutProps) => (
           </Tooltip>
         </Grid>
         <Grid item xs={9}>
-          <Box whiteSpace="pre-line">
-            <Typography data-testid="self-introduction">
-              {aboutContent.selfIntroduction}
-            </Typography>
-          </Box>
+          <Card>
+            <CardContent>
+              <Box whiteSpace="pre-line">
+                <Typography data-testid="self-introduction">
+                  {aboutContent.selfIntroduction}
+                </Typography>
+              </Box>
+            </CardContent>
+          </Card>
         </Grid>
       </Grid>
       <Box mt={8} display="flex" maxWidth={1080}>

@@ -6,7 +6,7 @@ import React from 'react';
 export const Contact = () => (
   <>
     <Header iconName='contact' title='連絡先' explanation='' />
-    <Tooltip title='※(マシュマロというサービスへのリンクとなっています。)'>
+    <Tooltip title='※(マシュマロというサービスへのリンクとなっています。)' arrow={true}>
       <Button variant='contained' rel='noopener noreferrer' href='https://marshmallow-qa.com/_niranken?utm_medium=url_text&utm_source=promotion' target='_brank'>
         ご連絡はこちら
       </Button>

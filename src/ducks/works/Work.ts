@@ -7,4 +7,5 @@ export type Work = {
   detail: string;
   writtenAt: string;
   writtenBy: string;
+  linkUrl?: string;
 }

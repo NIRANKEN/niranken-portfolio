@@ -1,16 +1,12 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import { Header } from 'components/molecules/Header';
+import { PageTitle } from 'components/molecules/PageTitle';
 
 export const Home: React.FC<{}> = () => {
   return (
-    <>
-      <Box>
-        <Header
-          title="ホーム"
-          explanation="ここに説明でも入れる"
-        />
-      </Box>
-    </>
+    <PageTitle
+      title="ホーム"
+      explanation={`にらんけんのPlaygroundスペースです。
+      ポートフォリオ置いてます。`}
+    />
   );
 };
