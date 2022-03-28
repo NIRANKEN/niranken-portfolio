@@ -8,9 +8,7 @@ describe('CircularProgress', () => {
       render(<CircularProgress />);
       const muiProgress = screen.queryByRole('progressbar');
       expect(muiProgress).toBeInTheDocument();
-      expect(
-        window.getComputedStyle(muiProgress!.parentElement!).height
-      ).toBeFalsy();
+      expect(screen.queryByTestId('circular-progress-box')).not.toHaveStyle(`height: calc(100vh - 112px)`);
     });
   });
   describe('useWindowHeight is true', () => {
@@ -18,9 +16,7 @@ describe('CircularProgress', () => {
       render(<CircularProgress useWindowHeight={true} />);
       const muiProgress = screen.queryByRole('progressbar');
       expect(muiProgress).toBeInTheDocument();
-      expect(
-        window.getComputedStyle(muiProgress!.parentElement!).height
-      ).toEqual('calc(100vh - 112px)');
+      expect(screen.queryByTestId('circular-progress-box')).toHaveStyle('height: calc(100vh - 112px)');
     });
   });
 });

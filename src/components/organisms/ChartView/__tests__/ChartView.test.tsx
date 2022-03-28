@@ -49,12 +49,12 @@ describe('ChartView', () => {
     it('should render', () => {
       renderComponent();
       // x-axis
-      expect(screen.queryByText('カテゴリ1')).toBeInTheDocument();
-      expect(screen.queryByText('カテゴリ2')).toBeInTheDocument();
+      expect(screen.getByText('カテゴリ1')).toBeInTheDocument();
+      expect(screen.getByText('カテゴリ2')).toBeInTheDocument();
 
       // y-axis
-      expect(screen.queryAllByText('1').length).toBeGreaterThan(0);
-      expect(screen.queryAllByText('2').length).toBeGreaterThan(0);
+      expect(screen.getAllByText('1').length).toBeGreaterThan(0);
+      expect(screen.getAllByText('2').length).toBeGreaterThan(0);
     });
   });
 });

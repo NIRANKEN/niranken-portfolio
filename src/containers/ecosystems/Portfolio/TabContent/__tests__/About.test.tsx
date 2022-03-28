@@ -8,18 +8,19 @@ describe('About', () => {
   });
 
   it('should render', () => {
+    const selfIntroText = `ここで自己紹介文を書く。
+      改行した際も問題ないかテストする。`;
     render(
       <About
-        selfIntroduction={`ここで自己紹介文を書く。
-        改行した際も問題ないかテストする。
-        `}
+        aboutContent={{
+          selfIntroduction: selfIntroText,
+        }}
       />
     );
-    expect(screen.queryByText('自己紹介・価値観')).toBeInTheDocument();
-    expect(screen.queryByTestId('about-icon')).toBeInTheDocument();
-    expect(screen.getByTestId('self-introduction').textContent)
-      .toContain(`ここで自己紹介文を書く。
-        改行した際も問題ないかテストする。
-        `);
+    expect(screen.getByText('自己紹介・価値観')).toBeInTheDocument();
+    expect(screen.getByTestId('about-icon')).toBeInTheDocument();
+    expect(screen.getByTestId('self-introduction').textContent).toContain(
+      selfIntroText
+    );
   });
 });

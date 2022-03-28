@@ -14,8 +14,8 @@ describe('TabPanel', () => {
         <Typography>テスト</Typography>
       </TabPanel>
     );
-    expect(screen.queryByText('テスト')).toBeInTheDocument();
-    expect(screen.queryByRole('tabpanel')).toBeInTheDocument();
+    expect(screen.getByText('テスト')).toBeInTheDocument();
+    expect(screen.getByRole('tabpanel')).toBeInTheDocument();
   });
 
   it('should render when "index" not equals "value"', () => {

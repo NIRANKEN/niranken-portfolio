@@ -9,12 +9,12 @@ describe('Header', () => {
 
   it('should render no icon Header component', () => {
     render(<Header title="No Icon Title" explanation="No Icon Explanation" />);
-    expect(screen.queryByText('No Icon Title')).toBeInTheDocument();
-    expect(screen.queryByText('No Icon Explanation')).toBeInTheDocument();
-    // TODO: queryByRole('svg')をしたい
+    expect(screen.getByText('No Icon Title')).toBeInTheDocument();
+    expect(screen.getByText('No Icon Explanation')).toBeInTheDocument();
+    // TODO: getByRole('svg')をしたい
     expect(screen.queryByTestId('about-icon')).not.toBeInTheDocument();
 
-    const titleBox = screen.queryByTestId('title-box');
+    const titleBox = screen.getByTestId('title-box');
     expect(titleBox).toHaveStyle({
       'font-size': '2.125rem',
       'font-weight': 700,
@@ -29,8 +29,8 @@ describe('Header', () => {
         explanation="Use Icon Explanation"
       />
     );
-    expect(screen.queryByText('Use Icon Title')).toBeInTheDocument();
-    expect(screen.queryByText('Use Icon Explanation')).toBeInTheDocument();
-    expect(screen.queryByTestId('about-icon')).toBeInTheDocument();
+    expect(screen.getByText('Use Icon Title')).toBeInTheDocument();
+    expect(screen.getByText('Use Icon Explanation')).toBeInTheDocument();
+    expect(screen.getByTestId('about-icon')).toBeInTheDocument();
   });
 });
