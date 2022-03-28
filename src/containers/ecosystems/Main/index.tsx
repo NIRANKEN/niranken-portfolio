@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { Home } from '../Home';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -35,7 +36,7 @@ const titles: PageTitle[] = [
 ];
 
 export const Main: React.FC = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState<boolean>(false);
   const [title, setTitle] = React.useState<string>('');
   const location = useLocation();
@@ -75,7 +76,7 @@ export const Main: React.FC = () => {
   const onClickMenuItem = (id: string, name: string) => () => {
     setOpen(false);
     setTitle(name);
-    history.push(`/${id}`);
+    navigate(`/${id}`);
   };
 
   return (
@@ -131,14 +132,14 @@ export const Main: React.FC = () => {
             handleClickMenuItem: onClickMenuItem,
           }}
         />
-        <Switch>
+        <Routes>
           {[...topMenuItems, ...bottomMenuItems].map(
             ({ id, PageComponent }) => (
-              <Route key={id} exact path={`/${id}`} component={PageComponent} />
+              <Route key={id} path={`/${id}/*`} element={<PageComponent />} />
             )
           )}
-          <Redirect from="/*" to="/home" />
-        </Switch>
+          <Route path='*' element={<>そのパスには何も存在しないよ</>} />
+        </Routes>
       </Box>
     </>
   );
