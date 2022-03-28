@@ -23,17 +23,17 @@ describe('BasicTabs', () => {
         ]}
       />
     );
-    expect(screen.queryByText('タイトル1')).toBeInTheDocument();
-    expect(screen.queryByText('タイトル2')).toBeInTheDocument();
-    expect(screen.queryByText('テスト1')).toBeInTheDocument();
+    expect(screen.getByText('タイトル1')).toBeInTheDocument();
+    expect(screen.getByText('タイトル2')).toBeInTheDocument();
+    expect(screen.getByText('テスト1')).toBeInTheDocument();
     expect(screen.queryByText('テスト2')).not.toBeInTheDocument();
-    expect(screen.queryByRole('tabpanel')).toBeInTheDocument();
+    expect(screen.getByRole('tabpanel')).toBeInTheDocument();
 
     fireEvent.click(screen.getByText('タイトル2'));
-    expect(screen.queryByText('タイトル1')).toBeInTheDocument();
-    expect(screen.queryByText('タイトル2')).toBeInTheDocument();
+    expect(screen.getByText('タイトル1')).toBeInTheDocument();
+    expect(screen.getByText('タイトル2')).toBeInTheDocument();
     expect(screen.queryByText('テスト1')).not.toBeInTheDocument();
-    expect(screen.queryByText('テスト2')).toBeInTheDocument();
-    expect(screen.queryByRole('tabpanel')).toBeInTheDocument();
+    expect(screen.getByText('テスト2')).toBeInTheDocument();
+    expect(screen.getByRole('tabpanel')).toBeInTheDocument();
   });
 });

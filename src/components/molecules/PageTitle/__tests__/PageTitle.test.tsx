@@ -9,9 +9,9 @@ describe('Page Title', () => {
 
   it('should render', () => {
     render(<PageTitle title="Page Title" explanation="Page Explanation" />);
-    expect(screen.queryByText('Page Title')).toBeInTheDocument();
-    expect(screen.queryByText('Page Explanation')).toBeInTheDocument();
-    const titleBox = screen.queryByTestId('title-box');
+    expect(screen.getByText('Page Title')).toBeInTheDocument();
+    expect(screen.getByText('Page Explanation')).toBeInTheDocument();
+    const titleBox = screen.getByTestId('title-box');
     expect(titleBox).toHaveStyle({
       'font-size': '3rem',
       'font-weight': 700,

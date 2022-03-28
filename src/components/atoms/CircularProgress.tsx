@@ -20,6 +20,7 @@ export const CircularProgress: React.FC<CircularProgressProps> = ({
 }) => {
   return (
     <Box
+      data-testid='circular-progress-box'
       sx={{
         p: 1,
         m: 1,

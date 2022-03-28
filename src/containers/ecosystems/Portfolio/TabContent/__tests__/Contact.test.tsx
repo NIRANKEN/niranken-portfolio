@@ -9,8 +9,8 @@ describe('Contact', () => {
 
   it('should render', () => {
     render(<Contact />);
-    expect(screen.queryByText('連絡先')).toBeInTheDocument();
-    expect(screen.queryByTestId('contact-icon')).toBeInTheDocument();
-    expect(screen.queryByText('ご連絡はこちら')).toBeInTheDocument();
+    expect(screen.getByText('連絡先')).toBeInTheDocument();
+    expect(screen.getByTestId('contact-icon')).toBeInTheDocument();
+    expect(screen.getByText('ご連絡はこちら')).toBeInTheDocument();
   });
 });

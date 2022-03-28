@@ -24,8 +24,8 @@ describe('Contact', () => {
   });
 
   it('should render', () => {
-    render(<Skills />);
-    expect(screen.queryByText('スキル一覧')).toBeInTheDocument();
-    expect(screen.queryByTestId('skills-icon')).toBeInTheDocument();
+    render(<Skills skills={[]} />);
+    expect(screen.getByText('スキル一覧')).toBeInTheDocument();
+    expect(screen.getByTestId('skills-icon')).toBeInTheDocument();
   });
 });

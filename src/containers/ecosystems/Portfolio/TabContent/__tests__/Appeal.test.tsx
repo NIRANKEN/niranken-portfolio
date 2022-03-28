@@ -8,9 +8,20 @@ describe('Appeals', () => {
   });
 
   it('should render', () => {
-    render(<Appeal appeal={'テストアピール'} detail={'テスト詳細'} imagePath={'dummy/image/path'} imageHeight={'1234'} />);
-    expect(screen.queryByText('テストアピール')).toBeInTheDocument();
-    // expect(screen.queryByText('テスト詳細')).toBeInTheDocument();
-    expect(screen.queryByTestId('appeals-image')).toBeInTheDocument();
+    render(
+      <Appeal
+        appealContent={{
+          id: 'testId',
+          appeal: 'テストアピール',
+          detail: 'テスト詳細',
+          imagePath: 'dummy/image/path',
+          imageHeight: '1234',
+          imageExplanation: 'テスト説明',
+        }}
+      />
+    );
+    expect(screen.getByText('テストアピール')).toBeInTheDocument();
+    expect(screen.getByText('▼ テスト説明')).toBeInTheDocument();
+    expect(screen.getByTestId('appeals-image')).toBeInTheDocument();
   });
 });
