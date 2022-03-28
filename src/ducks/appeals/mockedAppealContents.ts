@@ -5,7 +5,7 @@ export const mockedAppealContents: AppealContent[] = [
     id: 'appeal1',
     appeal: '1. Java6~8 + SpringFrameworkを直近よく使ってました',
     detail: `JavaであればMVCを意識したコードを書いてきたので、ある程度すぐに戦力として活躍できるかなと思います。
-    ※なにかスキル証明できるものを貼っておく`,
+    ※TODO: 個人的にJavaでなにか作って、スキル証明できるものを貼っておく`,
     imagePath: '/static/images/haribote.png',
     imageHeight: '240',
     imageExplanation: 'ここにgifやpngを貼る',

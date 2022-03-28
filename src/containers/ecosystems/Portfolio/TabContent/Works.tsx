@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -6,6 +7,8 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import { CircularProgress } from 'components/atoms/CircularProgress';
 import { Header } from 'components/molecules/Header';
 import { Work } from 'ducks/works';
@@ -85,7 +88,21 @@ export const Works: React.FC<WorksProps> = ({
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell align="left">{row.category}</TableCell>
-                  <TableCell align="left">{row.work}</TableCell>
+                  <TableCell align="left">
+                    {
+                      row.linkUrl ? (
+                        <Tooltip title={row.linkUrl} placement="top" arrow={true}>
+                          <Link href={row.linkUrl} rel='noopener noreferrer' target='_brank'>
+                            {row.work}
+                          </Link>
+                        </Tooltip>
+                      ) : (
+                        <Typography>
+                          {row.work}
+                        </Typography>
+                      )
+                    }
+                  </TableCell>
                   <TableCell align="left">
                     <Box whiteSpace="pre-line">{row.detail}</Box>
                   </TableCell>

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
 import { Home } from '../Home';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -138,6 +137,7 @@ export const Main: React.FC = () => {
               <Route key={id} path={`/${id}/*`} element={<PageComponent />} />
             )
           )}
+          <Route path='/' element={<Home />} />
           <Route path='*' element={<>そのパスには何も存在しないよ</>} />
         </Routes>
       </Box>
