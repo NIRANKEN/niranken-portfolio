@@ -2,7 +2,7 @@ import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+// import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
@@ -44,7 +44,7 @@ export const About: React.FC<AboutProps> = ({ aboutContent }: AboutProps) => (
           </Card>
         </Grid>
       </Grid>
-      <Box mt={8} display="flex" maxWidth={1080}>
+      {/* <Box mt={8} display="flex" maxWidth={1080}>
         <CardMedia
           data-testid="youtube-src"
           sx={{
@@ -56,7 +56,7 @@ export const About: React.FC<AboutProps> = ({ aboutContent }: AboutProps) => (
           src="https://www.youtube.com/embed/n0HA1awa9BU"
         />
       </Box>
-      <Typography>(Youtubeの動画もかんたんに貼れるっぽい))</Typography>
+      <Typography>(Youtubeの動画もかんたんに貼れるっぽい))</Typography> */}
     </Box>
     {/*
       <Box># このProjectのやることリスト</Box>
