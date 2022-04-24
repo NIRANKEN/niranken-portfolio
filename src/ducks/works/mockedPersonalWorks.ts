@@ -4,6 +4,7 @@ import { Work } from './Work';
 export const mockedPersonalWorks: Work[] = [
   {
     id: 'personalWorkId1',
+    type: 'personal',
     ord: 1,
     category: 'お遊び',
     work: '音声麻雀してみた',
@@ -14,6 +15,7 @@ export const mockedPersonalWorks: Work[] = [
   },
   {
     id: 'personalWorkId2',
+    type: 'personal',
     ord: 2,
     category: 'React',
     work: 'ポートフォリオ',

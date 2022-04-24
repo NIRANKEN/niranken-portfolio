@@ -7,13 +7,15 @@ import {
   Bar,
   XAxis,
 } from 'recharts';
-import { Chart } from './Chart';
+import { Chart } from '../../../ducks/skills/Chart';
 
 type ChartViewProps = {
   chart: Chart;
 };
 
-export const ChartView: React.FC<ChartViewProps> = ({ chart }: ChartViewProps) => {
+export const ChartView: React.FC<ChartViewProps> = ({
+  chart,
+}: ChartViewProps) => {
   const dataKey = `${chart.id}-total_emp`;
   type ChartData = {
     name: string;
@@ -63,10 +65,8 @@ export const ChartView: React.FC<ChartViewProps> = ({ chart }: ChartViewProps) =
           type="bar"
           barSize={25}
           isAnimationActive={false}
-        >
-        </Bar>
+        ></Bar>
       </ComposedChart>
     </ResponsiveContainer>
   );
 };
-

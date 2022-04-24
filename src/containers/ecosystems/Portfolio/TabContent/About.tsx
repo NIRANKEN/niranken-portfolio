@@ -56,7 +56,7 @@ export const About: React.FC<AboutProps> = ({ aboutContent }: AboutProps) => (
           src="https://www.youtube.com/embed/n0HA1awa9BU"
         />
       </Box>
-      <Typography>(Youtubeの動画もかんたんに貼れるっぽい))</Typography>
+      <Typography>(Youtubeの動画もかんたんに貼れるっぽい)</Typography>
     </Box>
     {/*
       <Box># このProjectのやることリスト</Box>

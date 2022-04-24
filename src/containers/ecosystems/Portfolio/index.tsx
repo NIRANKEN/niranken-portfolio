@@ -13,7 +13,6 @@ import { AppDispatch } from 'store';
 import { mockedAboutContent } from 'ducks/about/mockedAboutContent';
 import { mockedAppealContents } from 'ducks/appeals/mockedAppealContents';
 import { mockedSkills } from 'ducks/skills/mockedSkills';
-import { mockedPersonalWorks } from 'ducks/works/mockedPersonalWorks';
 
 export const Portfolio: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -45,7 +44,13 @@ export const Portfolio: React.FC = () => {
             title: 'WORKS',
             content: (
               <Works
-                {...{ works, personalWorks: mockedPersonalWorks, isLoading }}
+                {...{
+                  works: works.filter((work) => work.type === 'webEngineer'),
+                  personalWorks: works.filter(
+                    (work) => work.type === 'personal'
+                  ),
+                  isLoading,
+                }}
               />
             ),
           },
