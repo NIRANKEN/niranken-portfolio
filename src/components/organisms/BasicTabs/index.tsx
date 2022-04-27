@@ -23,14 +23,27 @@ export const BasicTabs: React.FC<BasicTabsType> = ({
 
   return (
     <Box mt={2} sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Box
+        sx={{
+          borderBottom: 1,
+          borderColor: 'divider',
+          maxWidth: { xs: 320, sm: 480 },
+        }}
+      >
         <Tabs
           value={value}
           onChange={(event, newValue: any) => setValue(newValue)}
-          aria-label="basic tabs example"
+          aria-label="scrollable auto tabs"
+          variant="scrollable"
+          scrollButtons="auto"
         >
           {basicTabs.map((basicTab, idx) => (
-            <Tab data-testid={`portfolio-tab-${idx}`} key={`tab-${idx}`} label={basicTab.title} {...a11yProps(idx)} />
+            <Tab
+              data-testid={`portfolio-tab-${idx}`}
+              key={`tab-${idx}`}
+              label={basicTab.title}
+              {...a11yProps(idx)}
+            />
           ))}
         </Tabs>
       </Box>

@@ -30,7 +30,7 @@ export const Portfolio: React.FC = () => {
     !readAllWorksResult.status || readAllWorksResult.status === 'pending';
 
   return (
-    <Box>
+    <Box sx={{ width: '100%' }}>
       <PageTitle title="にらんけんのポートフォリオ" explanation="" />
       <BasicTabs
         basicTabs={[
