@@ -31,10 +31,7 @@ export const Portfolio: React.FC = () => {
 
   return (
     <Box>
-      <PageTitle
-        title="にらんけんのポートフォリオ"
-        explanation="自分がどういう人間で、どういう経歴で、どういうスキル持ってんのかみたいなものを、企業の人事担当者やエンジニアの方にアピールするもの(だと思ってる)"
-      />
+      <PageTitle title="にらんけんのポートフォリオ" explanation="" />
       <BasicTabs
         basicTabs={[
           {

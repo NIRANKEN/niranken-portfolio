@@ -13,7 +13,9 @@ type ChartViewProps = {
   chart: Chart;
 };
 
-export const ChartView: React.FC<ChartViewProps> = ({ chart }: ChartViewProps) => {
+export const ChartView: React.FC<ChartViewProps> = ({
+  chart,
+}: ChartViewProps) => {
   const dataKey = `${chart.id}-total_emp`;
   type ChartData = {
     name: string;
@@ -52,10 +54,6 @@ export const ChartView: React.FC<ChartViewProps> = ({ chart }: ChartViewProps) =
           domain={[0, 5]}
           tickCount={6}
         />
-        {/* 1. 既存KPIだと、マウスカーソルの位置によらずTooltip固定なのでどっちがよいか検討する*/}
-        {/* 2. 既存KPIだと表示されているものが多い(年度(黒), 水色の●印, 総社員数: 【数値】(黒))*/}
-        {/* 3. Tooltipの枠線の色そろえるか*/}
-        {/* 4. Tooltipのふきだし表示*/}
         <Bar
           dataKey={dataKey}
           yAxisId="left"
@@ -63,10 +61,8 @@ export const ChartView: React.FC<ChartViewProps> = ({ chart }: ChartViewProps) =
           type="bar"
           barSize={25}
           isAnimationActive={false}
-        >
-        </Bar>
+        ></Bar>
       </ComposedChart>
     </ResponsiveContainer>
   );
 };
-
