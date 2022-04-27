@@ -19,7 +19,7 @@ export const About: React.FC<AboutProps> = ({ aboutContent }: AboutProps) => (
     <Header iconName="about" title="自己紹介・価値観" explanation="" />
     <Box mt={2}>
       <Grid container direction="row" spacing={2}>
-        <Grid item xs={3}>
+        <Grid item md={3}>
           <Tooltip title="こんにちは！">
             <Avatar
               data-testid="avatar-icon"
@@ -32,7 +32,7 @@ export const About: React.FC<AboutProps> = ({ aboutContent }: AboutProps) => (
             />
           </Tooltip>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item md={9}>
           <Card>
             <CardContent>
               <Box whiteSpace="pre-line">

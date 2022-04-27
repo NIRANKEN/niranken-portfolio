@@ -9,7 +9,7 @@ export const mockedAppealContents: AppealContent[] = [
     imagePath: '/static/images/java_sample.png',
     imageHeight: '240',
     imageExplanation: `(仕事のソースは貼れないので)教育免許取得のための授業で、
-    　javaソース課題を提出するために書いたときの実装風景を。`,
+    　javaソース課題を提出するために書いたときの実装風景(左:実装、右:JUnit)。`,
   },
   {
     id: 'appeal2',
