@@ -42,7 +42,10 @@ export const Works: React.FC<WorksProps> = ({
         <CircularProgress />
       ) : (
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table
+            sx={{ minWidth: { xs: 320, sm: 480, md: 650 } }}
+            aria-label="simple table"
+          >
             <TableHead>
               <TableRow>
                 {/* TODO: カテゴリでの抽出や日時ソートをつけたい想定 */}
@@ -73,7 +76,10 @@ export const Works: React.FC<WorksProps> = ({
       <Box mt={8}>
         <Header iconName="works2" title="個人的に作ったもの" explanation="" />
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table
+            sx={{ minWidth: { xs: 320, sm: 480, md: 650 } }}
+            aria-label="simple table"
+          >
             <TableHead>
               <TableRow>
                 <TableCell align="left">カテゴリ</TableCell>
@@ -89,19 +95,19 @@ export const Works: React.FC<WorksProps> = ({
                 >
                   <TableCell align="left">{row.category}</TableCell>
                   <TableCell align="left">
-                    {
-                      row.linkUrl ? (
-                        <Tooltip title={row.linkUrl} placement="top" arrow={true}>
-                          <Link href={row.linkUrl} rel='noopener noreferrer' target='_brank'>
-                            {row.work}
-                          </Link>
-                        </Tooltip>
-                      ) : (
-                        <Typography>
+                    {row.linkUrl ? (
+                      <Tooltip title={row.linkUrl} placement="top" arrow={true}>
+                        <Link
+                          href={row.linkUrl}
+                          rel="noopener noreferrer"
+                          target="_brank"
+                        >
                           {row.work}
-                        </Typography>
-                      )
-                    }
+                        </Link>
+                      </Tooltip>
+                    ) : (
+                      <Typography>{row.work}</Typography>
+                    )}
                   </TableCell>
                   <TableCell align="left">
                     <Box whiteSpace="pre-line">{row.detail}</Box>

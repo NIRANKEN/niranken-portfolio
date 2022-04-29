@@ -7,7 +7,7 @@ describe('Main', () => {
     cy.log('visit HOME');
     cy.visit('/');
     cy.contains('ホーム').should('be.visible');
-    cy.contains('ここに説明でも入れる').should('be.visible');
+    cy.contains('にらんけんのPlaygroundスペースです。 ポートフォリオ置いてます。').should('be.visible');
     cy.dataTestId('menu-home').should('not.exist');
     cy.dataTestId('menu-portfolio').should('not.exist');
 

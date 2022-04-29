@@ -22,5 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# add manually by niranken
+# manually added by niranken
 /target
+/aws_configs

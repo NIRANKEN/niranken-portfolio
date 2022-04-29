@@ -29,11 +29,8 @@ export const Portfolio: React.FC = () => {
     !readAllWorksResult.status || readAllWorksResult.status === 'pending';
 
   return (
-    <Box>
-      <PageTitle
-        title="にらんけんのポートフォリオ"
-        explanation="自分がどういう人間(?)で、どういう経歴で、どういうスキル持ってんのかみたいなものを、企業のエンジニアや人事担当者にアピールするもの(だと思ってる)"
-      />
+    <Box sx={{ width: '100%' }}>
+      <PageTitle title="にらんけんのポートフォリオ" explanation="" />
       <BasicTabs
         basicTabs={[
           {

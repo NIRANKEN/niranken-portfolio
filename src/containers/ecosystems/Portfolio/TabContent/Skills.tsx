@@ -9,11 +9,9 @@ import React from 'react';
 
 type SkillsProps = {
   skills: Skill[];
-}
+};
 
-export const Skills: React.FC<SkillsProps> = ({
-  skills
-}: SkillsProps) => (
+export const Skills: React.FC<SkillsProps> = ({ skills }: SkillsProps) => (
   <>
     {/* TODO: 右のカードの説明は0~5の数値の説明に変更する */}
     <Header iconName="skills" title="スキル一覧" explanation="" />
@@ -21,13 +19,22 @@ export const Skills: React.FC<SkillsProps> = ({
       {skills.map((skill) => (
         <React.Fragment key={skill.id}>
           <Typography component="div">
-            <Box fontWeight="fontWeightBold" fontSize="h6.fontSize">
+            <Box fontWeight="fontWeightBold" fontSize="h6.fontSize" mt={2}>
               {skill.title}
             </Box>
           </Typography>
           <Grid container direction="row" spacing={2}>
             <Grid item xs={12} sm={12} md={12} lg={8} xl={6}>
-              <Box key={skill.id} height={360} width={820} px={2} mt={1}>
+              <Box
+                key={skill.id}
+                height={360}
+                px={2}
+                mt={1}
+                sx={{
+                  height: { xs: 240, sm: 320 },
+                  width: { xs: 320, sm: 480, md: 820 },
+                }}
+              >
                 <ChartView chart={skill} />
               </Box>
             </Grid>
