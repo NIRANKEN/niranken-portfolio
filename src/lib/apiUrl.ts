@@ -1,1 +1,1 @@
-export const apiUrl = "https://example.com/api/";
+export const apiUrl = process.env.REACT_APP_API_ENDPOINT;
