@@ -5,6 +5,7 @@ import { Work } from '../Work';
 describe('works', () => {
   const work1: Work = {
     id: 'dummy-id',
+    type: 'personal',
     ord: 1,
     category: 'dummy-category',
     work: 'dummy-work',

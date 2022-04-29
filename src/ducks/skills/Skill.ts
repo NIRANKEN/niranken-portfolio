@@ -1,3 +1,3 @@
-import { Chart } from "components/organisms/ChartView/Chart";
+import { Chart } from "ducks/skills/Chart";
 
 export type Skill = Chart;

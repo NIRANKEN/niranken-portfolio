@@ -8,7 +8,7 @@ import {
   XAxis,
   Tooltip,
 } from 'recharts';
-import { Chart } from './Chart';
+import { Chart } from '../../../ducks/skills/Chart';
 
 type ChartViewProps = {
   chart: Chart;

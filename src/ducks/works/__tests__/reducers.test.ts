@@ -8,8 +8,9 @@ import { actions } from '../actions';
 import { Work } from '../Work';
 
 describe('notifications', () => {
-  const notification1: Work = {
+  const work1: Work = {
     id: 'dummyId',
+    type: 'personal',
     ord: 1,
     category: 'dummyCategory',
     work: 'dummyWork',
@@ -59,7 +60,7 @@ describe('notifications', () => {
         };
         const modifiedState = reducer(
           initialState,
-          actions.readAll.fulfilled([notification1], 'requestId')
+          actions.readAll.fulfilled([work1], 'requestId')
         );
         expect(snapshotDiff(initialState, modifiedState))
           .toMatchInlineSnapshot(`
@@ -77,6 +78,7 @@ describe('notifications', () => {
           +     文2\\",
           +       \\"id\\": \\"dummyId\\",
           +       \\"ord\\": 1,
+          +       \\"type\\": \\"personal\\",
           +       \\"work\\": \\"dummyWork\\",
           +       \\"writtenAt\\": \\"YYYY-MM-DD\\",
           +       \\"writtenBy\\": \\"にらんけん\\",
@@ -149,10 +151,7 @@ describe('notifications', () => {
         expect(
           snapshotDiff(
             initialState,
-            reducer(
-              initialState,
-              actions.read.pending('requestId', workId)
-            )
+            reducer(initialState, actions.read.pending('requestId', workId))
           )
         ).toMatchInlineSnapshot(`
           "Snapshot Diff:
@@ -181,7 +180,7 @@ describe('notifications', () => {
         };
         const modifiedState = reducer(
           initialState,
-          actions.read.fulfilled(notification1, 'requestId', workId)
+          actions.read.fulfilled(work1, 'requestId', workId)
         );
         expect(snapshotDiff(initialState, modifiedState))
           .toMatchInlineSnapshot(`
@@ -199,6 +198,7 @@ describe('notifications', () => {
           +     文2\\",
           +       \\"id\\": \\"dummyId\\",
           +       \\"ord\\": 1,
+          +       \\"type\\": \\"personal\\",
           +       \\"work\\": \\"dummyWork\\",
           +       \\"writtenAt\\": \\"YYYY-MM-DD\\",
           +       \\"writtenBy\\": \\"にらんけん\\",
