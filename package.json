@@ -8,6 +8,7 @@
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.2",
     "@reduxjs/toolkit": "^1.8.0",
+    "fetch-intercept": "^2.4.0",
     "history": "^5.0.0",
     "prettier": "^2.6.1",
     "react": "^17.0.2",
@@ -49,19 +50,24 @@
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "cypress": "^9.5.2",
+    "dotenv-cli": "^5.1.0",
     "eslint": "^8.12.0",
     "eslint-import-resolver-typescript": "^2.7.0",
     "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-react": "^7.29.4"
+    "eslint-plugin-react": "^7.29.4",
+    "jest-fetch-mock": "^3.0.3"
   },
   "scripts": {
-    "start": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-3000} run-p start:client cypress:open",
-    "start:client": "react-scripts start",
+    "start": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-9000} run-p start:client cypress:open",
+    "start:dev": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-9000} run-p start:client cypress:open",
+    "start:client": "PORT=${CLIENT_PORT:-9000} react-scripts start",
+    "start:client:dev": "PORT=${CLIENT_PORT:-9000} dotenv -e .env.develop react-scripts start",
     "build": "react-scripts build",
+    "build:dev": "dotenv -e .env.develop react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "cypress:open": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-3000} DISPLAY=\"`grep nameserver /etc/resolv.conf | sed 's/nameserver //' | head -n 1`:0\" cypress open"
+    "cypress:open": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-9000} DISPLAY=\"`grep nameserver /etc/resolv.conf | sed 's/nameserver //' | head -n 1`:0\" cypress open"
   },
   "eslintConfig": {
     "plugins": [

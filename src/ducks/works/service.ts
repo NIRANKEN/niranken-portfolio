@@ -1,13 +1,7 @@
 import { mockedWorks } from "./mockedWorks";
+import { apiUrl } from "lib/apiUrl";
 
-export const readAll = async ():Promise<Response> => ({
-  json: async () => {
-    await new Promise(resolve => setTimeout(resolve, 200));
-    return mockedWorks;
-  },
-  status: 200,
-  statusText: 'This is Dummy works',
-} as Response);
+export const readAll = async (): Promise<Response> => fetch(`${apiUrl}/works`);
 
 export const read = async (workId: string):Promise<Response> => {
   await new Promise(resolve => setTimeout(resolve, 1000));
