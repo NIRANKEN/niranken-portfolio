@@ -58,16 +58,16 @@
     "jest-fetch-mock": "^3.0.3"
   },
   "scripts": {
-    "start": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-3000} run-p start:client cypress:open",
-    "start:dev": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-3000} run-p start:client cypress:open",
-    "start:client": "react-scripts start",
-    "start:client:dev": "dotenv -e .env.develop react-scripts start",
+    "start": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-9000} run-p start:client cypress:open",
+    "start:dev": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-9000} run-p start:client cypress:open",
+    "start:client": "PORT=${CLIENT_PORT:-9000} react-scripts start",
+    "start:client:dev": "PORT=${CLIENT_PORT:-9000} dotenv -e .env.develop react-scripts start",
     "build": "react-scripts build",
     "build:dev": "dotenv -e .env.develop react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "cypress:open": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-3000} DISPLAY=\"`grep nameserver /etc/resolv.conf | sed 's/nameserver //' | head -n 1`:0\" cypress open"
+    "cypress:open": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-9000} DISPLAY=\"`grep nameserver /etc/resolv.conf | sed 's/nameserver //' | head -n 1`:0\" cypress open"
   },
   "eslintConfig": {
     "plugins": [
