@@ -12,9 +12,6 @@ export const fetchInterceptor = (): FetchInterceptor => ({
       config.headers = {
         ...config.headers,
         Authorization: 'Bearer Allow niranken-portfolio',
-        'Cache-Control': 'no-cache, no-store',
-        Pragma: 'no-cache',
-        Expires: '14d',
       };
       return [url, config];
     } catch (e) {
