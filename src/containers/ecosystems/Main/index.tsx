@@ -22,7 +22,7 @@ type PageTitle = {
 const titles: PageTitle[] = [
   {
     path: '/',
-    title: 'Home',
+    title: 'ポートフォリオ',
   },
   {
     path: '/home',
@@ -137,8 +137,8 @@ export const Main: React.FC = () => {
               <Route key={id} path={`/${id}/*`} element={<PageComponent />} />
             )
           )}
-          <Route path='/' element={<Home />} />
-          <Route path='*' element={<>そのパスには何も存在しないよ</>} />
+          <Route path="/" element={<Portfolio />} />
+          <Route path="*" element={<>そのパスには何も存在しないよ</>} />
         </Routes>
       </Box>
     </>

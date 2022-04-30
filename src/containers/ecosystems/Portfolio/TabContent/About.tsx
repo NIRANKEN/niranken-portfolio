@@ -1,3 +1,4 @@
+import { CircularProgress } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -11,10 +12,14 @@ import { AboutContent } from 'ducks/about/AboutContent';
 import React from 'react';
 
 type AboutProps = {
-  aboutContent: AboutContent;
+  aboutContent: AboutContent | undefined;
+  isLoading: () => boolean;
 };
 
-export const About: React.FC<AboutProps> = ({ aboutContent }: AboutProps) => (
+export const About: React.FC<AboutProps> = ({
+  aboutContent,
+  isLoading,
+}: AboutProps) => (
   <>
     <Header iconName="about" title="自己紹介・価値観" explanation="" />
     <Box mt={2}>
@@ -36,9 +41,15 @@ export const About: React.FC<AboutProps> = ({ aboutContent }: AboutProps) => (
           <Card>
             <CardContent>
               <Box whiteSpace="pre-line">
-                <Typography data-testid="self-introduction">
-                  {aboutContent.selfIntroduction}
-                </Typography>
+                {isLoading() ? (
+                  <CircularProgress />
+                ) : (
+                  <Typography data-testid="self-introduction">
+                    {aboutContent
+                      ? aboutContent.selfIntroduction
+                      : '読み込み失敗'}
+                  </Typography>
+                )}
               </Box>
             </CardContent>
           </Card>

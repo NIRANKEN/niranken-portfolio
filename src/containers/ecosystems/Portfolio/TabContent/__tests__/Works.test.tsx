@@ -16,7 +16,7 @@ describe('Contact', () => {
     expect(screen.getByTestId('works2-icon')).toBeInTheDocument();
   };
 
-  describe('isLoading is true', () => {
+  describe('isLoading', () => {
     it('should render progressbar', () => {
       render(<Works works={[]} personalWorks={[]} isLoading={() => true} />);
       checkCommon();
@@ -24,7 +24,7 @@ describe('Contact', () => {
     });
   });
 
-  describe('isLoading is false', () => {
+  describe('afterLoading', () => {
     it('should not render progressbar', () => {
       render(<Works works={[]} personalWorks={[]} isLoading={() => false} />);
       checkCommon();

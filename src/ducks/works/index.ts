@@ -1,5 +1,5 @@
-export { operations } from './operations';
+export { operations as worksOperations } from './operations';
 export { reducer, initialState } from './reducers';
-export { selectors } from './selectors';
+export { selectors as worksSelectors } from './selectors';
 
-export * from './Work';
+export * from './Work'

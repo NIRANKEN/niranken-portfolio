@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Skills } from '../Skills';
+import { Skill } from 'ducks/skills';
 
 describe('Contact', () => {
   beforeEach(() => {
@@ -23,9 +24,29 @@ describe('Contact', () => {
       .mockReturnValue(500);
   });
 
-  it('should render', () => {
-    render(<Skills skills={[]} />);
-    expect(screen.getByText('スキル一覧')).toBeInTheDocument();
-    expect(screen.getByTestId('skills-icon')).toBeInTheDocument();
+  describe('should render', () => {
+    const skill: Skill = {
+      id: 'id1',
+      title: 'dummyTitle',
+      explanation: 'dummyExplanation',
+      colorCode: '#FFFFFF',
+      results: [],
+    };
+
+    it('isLoading', () => {
+      render(<Skills skills={[skill]} isLoading={() => true} />);
+      expect(screen.getByText('スキル一覧')).toBeInTheDocument();
+      expect(screen.getByTestId('skills-icon')).toBeInTheDocument();
+      expect(screen.queryByText('dummyTitle')).not.toBeInTheDocument();
+      expect(screen.getByRole('progressbar')).toBeInTheDocument();
+    });
+
+    it('afterLoading', () => {
+      render(<Skills skills={[skill]} isLoading={() => false} />);
+      expect(screen.getByText('スキル一覧')).toBeInTheDocument();
+      expect(screen.getByTestId('skills-icon')).toBeInTheDocument();
+      expect(screen.getByText('dummyTitle')).toBeInTheDocument();
+      expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
+    });
   });
 });
