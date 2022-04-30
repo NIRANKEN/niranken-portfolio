@@ -59,7 +59,7 @@
   },
   "scripts": {
     "start": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-9000} run-p start:client cypress:open",
-    "start:dev": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-9000} run-p start:client cypress:open",
+    "start:dev": "CYPRESS_baseUrl=http://localhost:${CLIENT_PORT:-9000} run-p start:client:dev cypress:open",
     "start:client": "PORT=${CLIENT_PORT:-9000} react-scripts start",
     "start:client:dev": "PORT=${CLIENT_PORT:-9000} dotenv -e .env.develop react-scripts start",
     "build": "react-scripts build",

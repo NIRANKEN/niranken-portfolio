@@ -1,7 +1,10 @@
 import { mockedWorks } from "./mockedWorks";
 import { apiUrl } from "lib/apiUrl";
 
-export const readAll = async (): Promise<Response> => fetch(`${apiUrl}/works`);
+export const readAll = async (): Promise<Response> => fetch(`${apiUrl}/works`, {
+  mode: 'cors',
+  credentials: 'include'
+});
 
 export const read = async (workId: string):Promise<Response> => {
   await new Promise(resolve => setTimeout(resolve, 1000));

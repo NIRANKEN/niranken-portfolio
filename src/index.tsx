@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { App } from 'containers/environments/App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { reportWebVitals } from './reportWebVitals';
-import { fetchInterceptor } from 'fetchInterceptor';
+import { fetchInterceptor } from './fetchInterceptor';
 import fetchIntercept from 'fetch-intercept';
 
 fetchIntercept.register(fetchInterceptor());
