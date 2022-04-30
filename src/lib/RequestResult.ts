@@ -6,3 +6,5 @@ export const initialRequestResult = {
   status: undefined as RequestStatus | undefined,
   error: undefined as SerializedError | undefined,
 };
+
+export type RequestResultType = typeof  initialRequestResult;

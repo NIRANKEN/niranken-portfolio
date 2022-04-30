@@ -5,7 +5,7 @@ describe('Main', () => {
 
   it('should open / and should render tab contents', () => {
     cy.log('visit HOME');
-    cy.visit('/');
+    cy.visit('/home');
     cy.contains('ホーム').should('be.visible');
     cy.contains('にらんけんのPlaygroundスペースです。 ポートフォリオ置いてます。').should('be.visible');
     cy.dataTestId('menu-home').should('not.exist');

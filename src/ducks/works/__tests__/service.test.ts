@@ -12,7 +12,7 @@ describe('service', () => {
     mockedFetch.mockResponseOnce(JSON.stringify(mockedWorks));
     const result = await service.readAll();
     expect((await result.json()) as Notification[]).toEqual(mockedWorks);
-    expect(mockedFetch).toHaveBeenCalledWith('http://localhost:3000/dev/works');
+    expect(mockedFetch).toHaveBeenCalledWith('http://localhost:3000/dev/works',  {"credentials": "include", "mode": "cors"});
   });
 
   it('read', async () => {

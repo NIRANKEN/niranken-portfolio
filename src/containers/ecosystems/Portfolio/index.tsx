@@ -6,27 +6,51 @@ import { Contact } from './TabContent/Contact';
 import { Appeals } from './TabContent/Appeals';
 import { Skills } from './TabContent/Skills';
 import { PageTitle } from 'components/molecules/PageTitle';
-import { operations, selectors } from 'ducks/works';
+import { worksOperations, worksSelectors } from 'ducks/works';
+import { skillsOperations, skillsSelectors } from 'ducks/skills';
+import { appealsOperations, appealsSelectors } from 'ducks/appeals';
+import { aboutOperations, aboutSelectors } from 'ducks/about';
+
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'store';
-import { mockedAboutContent } from 'ducks/about/mockedAboutContent';
-import { mockedAppealContents } from 'ducks/appeals/mockedAppealContents';
-import { mockedSkills } from 'ducks/skills/mockedSkills';
+import { RequestResultType } from 'lib/RequestResult';
 
 export const Portfolio: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const works = useSelector(selectors.works);
-  const readAllWorksResult = useSelector(selectors.readAllResult);
+  // TODO: useSelectorとその利用箇所が冗長になっているのでリファクタする
+  const works = useSelector(worksSelectors.works);
+  const skills = useSelector(skillsSelectors.skills);
+  const appeals = useSelector(appealsSelectors.appeals);
+  const about = useSelector(aboutSelectors.about('niranken'));
+
+  const readAllWorksResult = useSelector(worksSelectors.readAllResult);
+  const readAllSkillsResult = useSelector(skillsSelectors.readAllResult);
+  const readAllAppealsResult = useSelector(appealsSelectors.readAllResult);
+  const readAboutResult = useSelector(aboutSelectors.readResult);
 
   useEffect(() => {
-    if (!readAllWorksResult.status) {
-      dispatch(operations.readAll());
+    if (
+      !readAllWorksResult.status &&
+      !readAllSkillsResult.status &&
+      !readAllAppealsResult.status &&
+      !readAboutResult.status
+    ) {
+      dispatch(worksOperations.readAll());
+      dispatch(skillsOperations.readAll());
+      dispatch(appealsOperations.readAll());
+      dispatch(aboutOperations.read());
     }
-  }, [dispatch, readAllWorksResult.status]);
+  }, [
+    dispatch,
+    readAllWorksResult.status,
+    readAllSkillsResult.status,
+    readAllAppealsResult,
+    readAboutResult,
+  ]);
 
-  const isLoading = () =>
-    !readAllWorksResult.status || readAllWorksResult.status === 'pending';
+  const isLoading = (dispatchResult: RequestResultType) => (): boolean =>
+    dispatchResult.status ? dispatchResult.status === 'pending' : true;
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -35,7 +59,12 @@ export const Portfolio: React.FC = () => {
         basicTabs={[
           {
             title: 'ABOUT',
-            content: <About aboutContent={mockedAboutContent} />,
+            content: (
+              <About
+                aboutContent={about}
+                isLoading={isLoading(readAboutResult)}
+              />
+            ),
           },
           {
             title: 'WORKS',
@@ -46,18 +75,28 @@ export const Portfolio: React.FC = () => {
                   personalWorks: works.filter(
                     (work) => work.type === 'personal'
                   ),
-                  isLoading,
+                  isLoading: isLoading(readAllWorksResult),
                 }}
               />
             ),
           },
           {
             title: 'APPEALS',
-            content: <Appeals appeals={mockedAppealContents} />,
+            content: (
+              <Appeals
+                appeals={appeals}
+                isLoading={isLoading(readAllAppealsResult)}
+              />
+            ),
           },
           {
             title: 'SKILLS',
-            content: <Skills skills={mockedSkills} />,
+            content: (
+              <Skills
+                skills={skills}
+                isLoading={isLoading(readAllSkillsResult)}
+              />
+            ),
           },
           {
             title: 'Contact',
