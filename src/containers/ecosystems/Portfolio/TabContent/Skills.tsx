@@ -64,6 +64,7 @@ export const Skills: React.FC<SkillsProps> = ({
             p: 2,
           }}
         >
+          {/* TODO: その他の部分の書き方考える。ベタ書きではなくAPIから取得する */}
           <Typography>
             {`# その他
         - スクラム: 1週間スプリントで半年ほど経験。開発体験が良かったのでもうちょい経験積みたい。
