@@ -3,6 +3,7 @@ import { Skill } from './Skill';
 export const mockedSkills: Skill[] = [
   {
     id: 'skill-id',
+    ord: 1,
     title: 'スキルカテゴリ',
     colorCode: '#FFFFFF',
     explanation: `# 説明タイトル

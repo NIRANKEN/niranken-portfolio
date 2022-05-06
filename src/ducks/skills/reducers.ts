@@ -6,7 +6,9 @@ import { actions } from './actions';
 import { initialRequestResult } from '../../lib/RequestResult';
 import { Skill } from './Skill';
 
-export const entityAdapter = createEntityAdapter<Skill>();
+export const entityAdapter = createEntityAdapter<Skill>({
+  sortComparer: (a, b) => (a.ord - b.ord)
+});
 
 export const initialState = entityAdapter.getInitialState({
   readAll: initialRequestResult,
