@@ -11,7 +11,7 @@ export const entityAdapter = createEntityAdapter<Work>({
   // sortComparer: (a, b) => a.someNumber - b.someNumber, // 数値昇順
   // sortComparer: (a, b) => b.someNumber - a.someNumber, // 数値降順
   // sortComparer: (a, b) => a.writtenAt.localeCompare(b.writtenAt), // string昇順
-  sortComparer: (a, b) => b.writtenAt.localeCompare(a.writtenAt), // string降順
+  sortComparer: (a, b) => (a.ord - b.ord),
 });
 
 /**

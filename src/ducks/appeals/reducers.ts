@@ -6,7 +6,9 @@ import { actions } from './actions';
 import { initialRequestResult } from '../../lib/RequestResult';
 import { AppealContent } from './AppealContent';
 
-export const entityAdapter = createEntityAdapter<AppealContent>();
+export const entityAdapter = createEntityAdapter<AppealContent>({
+  sortComparer: (a, b) => (a.ord - b.ord)
+});
 
 export const initialState = entityAdapter.getInitialState({
   readAll: initialRequestResult,

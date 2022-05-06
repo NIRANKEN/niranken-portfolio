@@ -16,7 +16,7 @@ export const Appeals: React.FC<AppealsProps> = ({
   isLoading,
 }: AppealsProps) => (
   <>
-    <Header iconName="appeals" title="3つのスキルアピール" explanation="" />
+    <Header iconName="appeals" title="得意なこと3選" explanation="" />
     {isLoading() ? (
       <CircularProgress />
     ) : (
