@@ -13,7 +13,7 @@ describe('Page Title', () => {
     expect(screen.getByText('Page Explanation')).toBeInTheDocument();
     const titleBox = screen.getByTestId('title-box');
     expect(titleBox).toHaveStyle({
-      'font-size': '3rem',
+      'font-size': '2.125rem',
       'font-weight': 700,
     });
   });

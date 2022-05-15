@@ -38,7 +38,6 @@ export const Works: React.FC<WorksProps> = ({
       />
 
       {isLoading() ? (
-        // TODO: CircularProgressを真ん中に配置する
         <CircularProgress />
       ) : (
         <TableContainer component={Paper}>

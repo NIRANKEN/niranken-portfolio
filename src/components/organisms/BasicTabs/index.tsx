@@ -4,6 +4,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { TabPanel } from './TabPanel';
 import { BasicTabType } from './BasicTabType';
+import { TabContentFab } from 'components/atoms/TabContentFab';
 
 const a11yProps = (index: number) => {
   return {
@@ -20,9 +21,10 @@ export const BasicTabs: React.FC<BasicTabsType> = ({
   basicTabs,
 }: BasicTabsType) => {
   const [value, setValue] = React.useState<number>(0);
+  const maxValue = basicTabs.length - 1;
 
   return (
-    <Box mt={2} sx={{ width: '100%' }}>
+    <Box mt={2} sx={{ width: '100%' }} position="relative">
       <Box
         sx={{
           borderBottom: 1,
@@ -52,6 +54,40 @@ export const BasicTabs: React.FC<BasicTabsType> = ({
           {basicTab.content}
         </TabPanel>
       ))}
+      <TabContentFab
+        label="before-tab-content"
+        tooltipTitle={value < 1 ? '' : basicTabs[value - 1].title}
+        sxProps={{
+          position: 'fixed',
+          bottom: 32,
+          right: 96,
+        }}
+        styleEnum="naviBefore"
+        isDisabled={value < 1}
+        onClick={() => {
+          if (value > 0) {
+            setValue(value - 1);
+            window.scrollTo(0, 0);
+          }
+        }}
+      />
+      <TabContentFab
+        label="next-tab-content"
+        tooltipTitle={value >= maxValue ? '' : basicTabs[value + 1].title}
+        sxProps={{
+          position: 'fixed',
+          bottom: 32,
+          right: 32,
+        }}
+        styleEnum="naviNext"
+        isDisabled={value >= maxValue}
+        onClick={() => {
+          if (value < maxValue) {
+            setValue(value + 1);
+            window.scrollTo(0, 0);
+          }
+        }}
+      />
     </Box>
   );
 };

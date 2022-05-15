@@ -12,6 +12,7 @@ describe('Appeals', () => {
       <Appeal
         appealContent={{
           id: 'testId',
+          ord: 1,
           appeal: 'テストアピール',
           detail: 'テスト詳細',
           imagePath: 'dummy/image/path',

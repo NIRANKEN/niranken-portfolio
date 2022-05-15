@@ -99,7 +99,7 @@ export const Portfolio: React.FC = () => {
             ),
           },
           {
-            title: 'Contact',
+            title: 'CONTACT',
             content: <Contact />,
           },
         ]}

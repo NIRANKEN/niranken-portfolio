@@ -27,6 +27,7 @@ describe('Contact', () => {
   describe('should render', () => {
     const skill: Skill = {
       id: 'id1',
+      ord: 1,
       title: 'dummyTitle',
       explanation: 'dummyExplanation',
       colorCode: '#FFFFFF',

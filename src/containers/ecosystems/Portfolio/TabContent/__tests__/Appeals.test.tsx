@@ -14,6 +14,7 @@ describe('Appeals', () => {
           appeals={[
             {
               id: 'dummyId',
+              ord: 1,
               appeal: 'dummyAppeal',
               detail: 'dummyDetail',
               imagePath: 'dummyImagePath',
@@ -27,7 +28,7 @@ describe('Appeals', () => {
 
     it('isLoading', () => {
       renderComponent(() => true);
-      expect(screen.getByText('3つのスキルアピール')).toBeInTheDocument();
+      expect(screen.getByText('得意なこと3選')).toBeInTheDocument();
       expect(screen.getByTestId('appeals-icon')).toBeInTheDocument();
       expect(screen.queryByText('dummyAppeal')).not.toBeInTheDocument();
       expect(
@@ -38,7 +39,7 @@ describe('Appeals', () => {
 
     it('afterLoading', () => {
       renderComponent(() => false);
-      expect(screen.getByText('3つのスキルアピール')).toBeInTheDocument();
+      expect(screen.getByText('得意なこと3選')).toBeInTheDocument();
       expect(screen.getByTestId('appeals-icon')).toBeInTheDocument();
       expect(screen.getByText('dummyAppeal')).toBeInTheDocument();
       expect(screen.getByText('▼ dummyImageExplanation')).toBeInTheDocument();
