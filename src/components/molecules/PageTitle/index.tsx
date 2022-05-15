@@ -17,7 +17,7 @@ export const PageTitle: React.FC<PageTitleProps> = ({
         <Box
           data-testid="title-box"
           fontWeight="fontWeightBold"
-          fontSize="h3.fontSize"
+          fontSize="h4.fontSize"
         >
           {title}
         </Box>

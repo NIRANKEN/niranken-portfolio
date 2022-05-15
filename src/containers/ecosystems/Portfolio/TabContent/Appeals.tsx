@@ -1,5 +1,5 @@
-import { CircularProgress } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { CircularProgress } from 'components/atoms/CircularProgress';
 import { Header } from 'components/molecules/Header';
 import { AppealContent } from 'ducks/appeals/AppealContent';
 import React from 'react';

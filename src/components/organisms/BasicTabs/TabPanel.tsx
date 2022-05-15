@@ -6,7 +6,7 @@ type TabPanelProps = {
   value: number;
   index: number;
   children?: React.ReactNode;
-}
+};
 
 export const TabPanel = (props: TabPanelProps) => {
   const { children, value, index } = props;
@@ -18,18 +18,13 @@ export const TabPanel = (props: TabPanelProps) => {
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          {children}
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3, mb: 2 }}>{children}</Box>}
     </div>
   );
-}
+};
 
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
 };
-
