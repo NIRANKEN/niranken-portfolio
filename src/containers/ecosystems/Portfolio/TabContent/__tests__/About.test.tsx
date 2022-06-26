@@ -22,21 +22,21 @@ describe('About', () => {
         />
       );
 
-    it('isLoading', () => {
+    it('isLoading', async () => {
       renderComponent(() => true);
       expect(screen.getByText('自己紹介・価値観')).toBeInTheDocument();
       expect(screen.getByTestId('about-icon')).toBeInTheDocument();
       expect(screen.queryByTestId('self-introduction')).not.toBeInTheDocument();
-      expect(screen.getByRole('progressbar')).toBeInTheDocument();
+      const progressbar = await screen.findByRole('progressbar');
+      expect(progressbar).toBeInTheDocument();
     });
 
-    it('AfterLoading', () => {
+    it('AfterLoading', async () => {
       renderComponent(() => false);
       expect(screen.getByText('自己紹介・価値観')).toBeInTheDocument();
       expect(screen.getByTestId('about-icon')).toBeInTheDocument();
-      expect(screen.getByTestId('self-introduction').textContent).toContain(
-        selfIntroText
-      );
+      const selfIntroduction = await screen.findByTestId('self-introduction');
+      expect(selfIntroduction.textContent).toContain(selfIntroText);
       expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
     });
   });

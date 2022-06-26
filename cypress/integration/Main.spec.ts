@@ -7,7 +7,9 @@ describe('Main', () => {
     cy.log('visit HOME');
     cy.visit('/home');
     cy.contains('ホーム').should('be.visible');
-    cy.contains('にらんけんのPlaygroundスペースです。 ポートフォリオ置いてます。').should('be.visible');
+    cy.contains(
+      'にらんけんのPlaygroundスペースです。 ポートフォリオ置いてます。'
+    ).should('be.visible');
     cy.dataTestId('menu-home').should('not.exist');
     cy.dataTestId('menu-portfolio').should('not.exist');
 
@@ -28,7 +30,7 @@ describe('Main', () => {
     cy.contains('人事さま向けWebアプリケーション開発者として').should(
       'not.exist'
     );
-    cy.contains('3つのスキルアピール').should('not.exist');
+    cy.contains('得意なこと3選').should('not.exist');
     cy.contains('スキル一覧').should('not.exist');
     cy.contains('連絡先').should('not.exist');
     // TODO: ABOUTが選択されていること、ほかが選択されていないこと
@@ -40,7 +42,7 @@ describe('Main', () => {
     cy.contains('人事さま向けWebアプリケーション開発者として').should(
       'be.visible'
     );
-    cy.contains('3つのスキルアピール').should('not.exist');
+    cy.contains('得意なこと3選').should('not.exist');
     cy.contains('スキル一覧').should('not.exist');
     cy.contains('連絡先').should('not.exist');
 
@@ -51,7 +53,7 @@ describe('Main', () => {
     cy.contains('人事さま向けWebアプリケーション開発者として').should(
       'not.exist'
     );
-    cy.contains('3つのスキルアピール').should('be.visible');
+    cy.contains('得意なこと3選').should('be.visible');
     cy.contains('スキル一覧').should('not.exist');
     cy.contains('連絡先').should('not.exist');
 
@@ -62,7 +64,7 @@ describe('Main', () => {
     cy.contains('人事さま向けWebアプリケーション開発者として').should(
       'not.exist'
     );
-    cy.contains('3つのスキルアピール').should('not.exist');
+    cy.contains('得意なこと3選').should('not.exist');
     cy.contains('スキル一覧').should('be.visible');
     cy.contains('連絡先').should('not.exist');
 
@@ -73,7 +75,7 @@ describe('Main', () => {
     cy.contains('人事さま向けWebアプリケーション開発者として').should(
       'not.exist'
     );
-    cy.contains('3つのスキルアピール').should('not.exist');
+    cy.contains('得意なこと3選').should('not.exist');
     cy.contains('スキル一覧').should('not.exist');
     cy.contains('連絡先').should('be.visible');
   });
