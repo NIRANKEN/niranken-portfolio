@@ -7,6 +7,7 @@ import CampaignIcon from '@mui/icons-material/Campaign';
 import NotesIcon from '@mui/icons-material/Notes';
 import PeopleIcon from '@mui/icons-material/People';
 import PersonIcon from '@mui/icons-material/Person';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 type HeaderProps = {
   iconName?: string;
@@ -24,11 +25,18 @@ export const Header: React.FC<HeaderProps> = ({
       <Typography component="div">
         <Box display="flex" alignItems="center">
           {iconName ? mapping[iconName] : <></>}
-          <Box data-testid="title-box" ml={1} fontSize="h4.fontSize" fontWeight="fontWeightBold">
+          <Box
+            data-testid="title-box"
+            ml={1}
+            fontSize="h4.fontSize"
+            fontWeight="fontWeightBold"
+          >
             {title}
           </Box>
         </Box>
-        <Box mt={4} whiteSpace="pre-line">{explanation}</Box>
+        <Box mt={4} whiteSpace="pre-line">
+          {explanation}
+        </Box>
       </Typography>
     </Box>
   );
@@ -36,10 +44,23 @@ export const Header: React.FC<HeaderProps> = ({
 
 // TODO: いちいち同じもの(sx)を定義するのはよろしくないので、sx渡すようにしたい
 const mapping: { [id: string]: JSX.Element } = {
-  about: <Face data-testid='about-icon' sx={{ fontSize: 'h4.fontSize' }} />,
-  works1: <PeopleIcon data-testid='works1-icon' sx={{ fontSize: 'h4.fontSize' }} />,
-  works2: <PersonIcon data-testid='works2-icon' sx={{ fontSize: 'h4.fontSize' }} />,
-  appeals: <CampaignIcon data-testid='appeals-icon' sx={{ fontSize: 'h4.fontSize' }} />,
-  skills: <NotesIcon data-testid='skills-icon' sx={{ fontSize: 'h4.fontSize' }} />, 
-  contact: <Contacts data-testid='contact-icon' sx={{ fontSize: 'h4.fontSize' }} />,
-}
+  about: <Face data-testid="about-icon" sx={{ fontSize: 'h4.fontSize' }} />,
+  works1: (
+    <PeopleIcon data-testid="works1-icon" sx={{ fontSize: 'h4.fontSize' }} />
+  ),
+  works2: (
+    <PersonIcon data-testid="works2-icon" sx={{ fontSize: 'h4.fontSize' }} />
+  ),
+  appeals: (
+    <CampaignIcon data-testid="appeals-icon" sx={{ fontSize: 'h4.fontSize' }} />
+  ),
+  skills: (
+    <NotesIcon data-testid="skills-icon" sx={{ fontSize: 'h4.fontSize' }} />
+  ),
+  contact: (
+    <Contacts data-testid="contact-icon" sx={{ fontSize: 'h4.fontSize' }} />
+  ),
+  twitter: (
+    <TwitterIcon data-testid="twitter-icon" sx={{ fontSize: 'h4.fontSize' }} />
+  ),
+};
