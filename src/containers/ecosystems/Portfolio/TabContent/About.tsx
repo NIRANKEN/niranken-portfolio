@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import { CircularProgress } from 'components/atoms/CircularProgress';
 import { Header } from 'components/molecules/Header';
 import { SnsLink } from 'components/organisms/SnsLink';
+import { Tweet } from 'components/organisms/Tweet';
 import { AboutContent } from 'ducks/about/AboutContent';
 import { ContactData, SendContactMessageResult } from 'ducks/contact';
 import { afterRenderSlideChildren } from 'lib/afterRenderSlideChildren';
@@ -136,13 +137,18 @@ export const About: React.FC<AboutProps> = ({
           </Grid>
         </Grid>
       </Box>
-      <Box mt={8}>
-        <Contact
-          sentContact={sentContact}
-          sendMessageResult={sendContactMessageResult}
-          onClickSendMessage={onClickSendMessage}
-        />
-      </Box>
+      <Grid container direction="row" spacing={2} mt={8}>
+        <Grid item md={6}>
+          <Tweet />
+        </Grid>
+        <Grid item md={6}>
+          <Contact
+            sentContact={sentContact}
+            sendMessageResult={sendContactMessageResult}
+            onClickSendMessage={onClickSendMessage}
+          />
+        </Grid>
+      </Grid>
     </>
   );
 };
