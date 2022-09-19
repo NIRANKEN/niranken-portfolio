@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import { BasicTabs } from 'components/organisms/BasicTabs';
 import { About } from './TabContent/About';
 import { Works } from './TabContent/Works';
-import { Contact } from './TabContent/Contact';
 import { Appeals } from './TabContent/Appeals';
 import { Skills } from './TabContent/Skills';
 import { PageTitle } from 'components/molecules/PageTitle';
@@ -15,19 +14,26 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'store';
 import { RequestResultType } from 'lib/RequestResult';
+import {
+  ContactData,
+  contactOperations,
+  contactSelectors,
+} from 'ducks/contact';
 
 export const Portfolio: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch: AppDispatch = useDispatch<AppDispatch>();
   // TODO: useSelectorとその利用箇所が冗長になっているのでリファクタする
   const works = useSelector(worksSelectors.works);
   const skills = useSelector(skillsSelectors.skills);
   const appeals = useSelector(appealsSelectors.appeals);
   const about = useSelector(aboutSelectors.about('niranken'));
+  const contact = useSelector(contactSelectors.contact('1'));
 
   const readAllWorksResult = useSelector(worksSelectors.readAllResult);
   const readAllSkillsResult = useSelector(skillsSelectors.readAllResult);
   const readAllAppealsResult = useSelector(appealsSelectors.readAllResult);
   const readAboutResult = useSelector(aboutSelectors.readResult);
+  const sendContactMessageResult = useSelector(contactSelectors.sendResult);
 
   useEffect(() => {
     if (
@@ -52,6 +58,10 @@ export const Portfolio: React.FC = () => {
   const isLoading = (dispatchResult: RequestResultType) => (): boolean =>
     dispatchResult.status ? dispatchResult.status === 'pending' : true;
 
+  const handleClickSendMessage = (contactData: ContactData) => {
+    dispatch(contactOperations.send(contactData));
+  };
+
   return (
     <Box sx={{ width: '100%' }}>
       <PageTitle title="にらんけんのポートフォリオ" explanation="" />
@@ -62,7 +72,10 @@ export const Portfolio: React.FC = () => {
             content: (
               <About
                 aboutContent={about}
+                sentContact={contact}
                 isLoading={isLoading(readAboutResult)}
+                onClickSendMessage={handleClickSendMessage}
+                sendContactMessageResult={sendContactMessageResult.status}
               />
             ),
           },
@@ -97,10 +110,6 @@ export const Portfolio: React.FC = () => {
                 isLoading={isLoading(readAllSkillsResult)}
               />
             ),
-          },
-          {
-            title: 'CONTACT',
-            content: <Contact />,
           },
         ]}
       />

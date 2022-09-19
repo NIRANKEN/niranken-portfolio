@@ -12,17 +12,26 @@ import { CircularProgress } from 'components/atoms/CircularProgress';
 import { Header } from 'components/molecules/Header';
 import { SnsLink } from 'components/organisms/SnsLink';
 import { AboutContent } from 'ducks/about/AboutContent';
+import { ContactData, SendContactMessageResult } from 'ducks/contact';
 import { afterRenderSlideChildren } from 'lib/afterRenderSlideChildren';
+import { RequestStatus } from 'lib/RequestResult';
 import React, { useState } from 'react';
+import { Contact } from './Contact';
 
 type AboutProps = {
   aboutContent: AboutContent | undefined;
+  sentContact: SendContactMessageResult | undefined;
   isLoading: () => boolean;
+  onClickSendMessage: (contactData: ContactData) => void;
+  sendContactMessageResult: RequestStatus | undefined;
 };
 
 export const About: React.FC<AboutProps> = ({
   aboutContent,
+  sentContact,
   isLoading,
+  onClickSendMessage,
+  sendContactMessageResult,
 }: AboutProps) => {
   const [isSnsCardRendered, setSnsCardRendered] = useState<boolean>(false);
   const [isAvatarRendered, setAvatarRendered] = useState<boolean>(false);
@@ -108,7 +117,7 @@ export const About: React.FC<AboutProps> = ({
               mountOnEnter
               unmountOnExit
             >
-              <Card>
+              <Card sx={{ maxWidth: 1080, m: 1, p: 1 }}>
                 <CardContent>
                   <Box whiteSpace="pre-line">
                     {isLoading() ? (
@@ -126,27 +135,14 @@ export const About: React.FC<AboutProps> = ({
             </Slide>
           </Grid>
         </Grid>
-        {/* <Box mt={8} display="flex" maxWidth={1080}>
-        <CardMedia
-          data-testid="youtube-src"
-          sx={{
-            width: 640,
-            height: 480,
-          }}
-          component="iframe"
-          title="#1 self-intro"
-          src="https://www.youtube.com/embed/n0HA1awa9BU"
+      </Box>
+      <Box mt={8}>
+        <Contact
+          sentContact={sentContact}
+          sendMessageResult={sendContactMessageResult}
+          onClickSendMessage={onClickSendMessage}
         />
       </Box>
-      <Typography>(Youtubeの動画もかんたんに貼れるっぽい))</Typography> */}
-      </Box>
-      {/*
-      <Box># このProjectのやることリスト</Box>
-      <Box> - 情報を埋める</Box>
-      <Box> - AWS S3まわり設定してアップロード</Box>
-      <Box> - スタイルをそれっぽくする</Box>
-      <Box> - CI/CD整備して簡単に更新できるようにする</Box>
-    */}
     </>
   );
 };

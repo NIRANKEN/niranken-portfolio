@@ -27,12 +27,12 @@ describe('Main', () => {
 
     cy.log('check display ABOUT page');
     cy.contains('自己紹介・価値観').should('be.visible');
+    cy.contains('連絡先').should('be.visible');
     cy.contains('人事さま向けWebアプリケーション開発者として').should(
       'not.exist'
     );
     cy.contains('得意なこと3選').should('not.exist');
     cy.contains('スキル一覧').should('not.exist');
-    cy.contains('連絡先').should('not.exist');
     // TODO: ABOUTが選択されていること、ほかが選択されていないこと
 
     cy.log('click "WORKS" tab');
@@ -44,7 +44,6 @@ describe('Main', () => {
     );
     cy.contains('得意なこと3選').should('not.exist');
     cy.contains('スキル一覧').should('not.exist');
-    cy.contains('連絡先').should('not.exist');
 
     cy.log('click "APPEALS" tab');
     cy.dataTestId('portfolio-tab-2').click();
@@ -55,7 +54,6 @@ describe('Main', () => {
     );
     cy.contains('得意なこと3選').should('be.visible');
     cy.contains('スキル一覧').should('not.exist');
-    cy.contains('連絡先').should('not.exist');
 
     cy.log('click "SKILLS" tab');
     cy.dataTestId('portfolio-tab-3').click();
@@ -66,18 +64,6 @@ describe('Main', () => {
     );
     cy.contains('得意なこと3選').should('not.exist');
     cy.contains('スキル一覧').should('be.visible');
-    cy.contains('連絡先').should('not.exist');
-
-    cy.log('click "CONTACT" tab');
-    cy.dataTestId('portfolio-tab-4').click();
-    cy.contains('にらんけんのポートフォリオ').should('be.visible');
-    cy.contains('自己紹介・価値観').should('not.exist');
-    cy.contains('人事さま向けWebアプリケーション開発者として').should(
-      'not.exist'
-    );
-    cy.contains('得意なこと3選').should('not.exist');
-    cy.contains('スキル一覧').should('not.exist');
-    cy.contains('連絡先').should('be.visible');
   });
 
   // TODO: /portfolioで直接ポートフォリオのページに遷移できること

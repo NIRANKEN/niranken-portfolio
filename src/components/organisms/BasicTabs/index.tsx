@@ -29,7 +29,7 @@ export const BasicTabs: React.FC<BasicTabsType> = ({
         sx={{
           borderBottom: 1,
           borderColor: 'divider',
-          maxWidth: { xs: 320, sm: 480 },
+          maxWidth: { xs: 260, sm: 380 },
         }}
       >
         <Tabs
