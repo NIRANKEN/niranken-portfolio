@@ -26,8 +26,11 @@ export const Tweet: React.FC<TweetProps> = () => {
           sx={{
             maxHeight: 512,
             minWidth: 512,
+            width: '100%',
             maxWidth: 1024,
-            m: 1,
+            my: 1,
+            ml: 1,
+            mr: 8,
             p: 4,
             overflow: 'auto',
           }}
