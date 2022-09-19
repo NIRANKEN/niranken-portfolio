@@ -1,6 +1,6 @@
 import type { SerializedError } from '@reduxjs/toolkit';
 
-type RequestStatus = 'pending' | 'fulfilled' | 'rejected';
+export type RequestStatus = 'pending' | 'fulfilled' | 'rejected';
 
 export const initialRequestResult = {
   status: undefined as RequestStatus | undefined,

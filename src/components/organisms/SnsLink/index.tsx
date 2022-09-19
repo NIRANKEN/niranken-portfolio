@@ -18,7 +18,7 @@ const snsMediaMap: { [P in SnsMediaEnum]: SnsMediaMapValue } = {
   youtube: {
     imageSrc: '/static/images/links/youtube_social_icon_red.png',
     sxProps: {
-      mt: 4,
+      mt: 6,
       height: 45,
       width: 64,
     },
@@ -34,7 +34,7 @@ const snsMediaMap: { [P in SnsMediaEnum]: SnsMediaMapValue } = {
   qiita: {
     imageSrc: '/static/images/links/qiita-logo-background-color.png',
     sxProps: {
-      mt: 4,
+      mt: 7,
       height: 39,
       width: 103,
     },
