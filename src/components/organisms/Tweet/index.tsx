@@ -26,7 +26,7 @@ export const Tweet: React.FC<TweetProps> = () => {
         <Card
           sx={{
             maxHeight: 512,
-            minWidth: 384,
+            minWidth: 320,
             width: '100%',
             maxWidth: 1024,
             my: 1,
