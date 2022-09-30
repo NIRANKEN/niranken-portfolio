@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { CircularProgress } from 'components/atoms/CircularProgress';
 import { Header } from 'components/molecules/Header';
@@ -28,5 +29,6 @@ export const Appeals: React.FC<AppealsProps> = ({
         ))}
       </Grid>
     )}
+    <Box mb={8}></Box>
   </>
 );

@@ -72,7 +72,7 @@ export const Works: React.FC<WorksProps> = ({
       )}
 
       {/* TODO: works1, works2を別々のコンポーネントで分ける works1とworks2で共通のものは共通化する*/}
-      <Box mt={8}>
+      <Box mt={8} mb={8}>
         <Header iconName="works2" title="個人的に作ったもの" explanation="" />
         <TableContainer component={Paper}>
           <Table

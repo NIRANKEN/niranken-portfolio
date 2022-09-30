@@ -71,7 +71,7 @@ export const Contact: React.FC<ContactProps> = ({
     <>
       <Header iconName="contact" title="連絡先" explanation="" />
       <Box display="flex" alignItems="center">
-        <Card sx={{ maxWidth: 450, m: 1, p: 1 }}>
+        <Card sx={{ maxWidth: 450, height: 512, m: 1, p: 1 }}>
           <CardContent>
             <Grid container spacing={2}>
               <Grid xs={12} item>
@@ -142,7 +142,7 @@ export const Contact: React.FC<ContactProps> = ({
                   required
                 />
               </Grid>
-              <Grid xs={12} item>
+              <Grid xs={12} item mt={4}>
                 {isLoading ? (
                   <Button variant="contained" fullWidth disabled>
                     <CircularProgress size={24} />
