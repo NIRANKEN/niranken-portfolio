@@ -49,21 +49,21 @@ export const About: React.FC<AboutProps> = ({
           }
         >
           <Grid container spacing={2}>
-            <Grid item xs={6} sm={4} md={3}>
+            <Grid item xs={12} sm={6} md={3}>
               <SnsLink
                 snsMediaEnum="github"
                 linkUrl={'https://github.com/NIRANKEN'}
                 explanation={'趣味で書いたソース達'}
               />
             </Grid>
-            <Grid item xs={6} sm={4} md={3}>
+            <Grid item xs={12} sm={6} md={3}>
               <SnsLink
                 snsMediaEnum="qiita"
                 linkUrl={'https://qiita.com/niranken'}
                 explanation={'勉強したことの記事'}
               />
             </Grid>
-            <Grid item xs={6} sm={4} md={3}>
+            <Grid item xs={12} sm={6} md={3}>
               <SnsLink
                 snsMediaEnum="youtube"
                 linkUrl={
@@ -72,7 +72,7 @@ export const About: React.FC<AboutProps> = ({
                 explanation={'勉強したことの動画'}
               />
             </Grid>
-            <Grid item xs={6} sm={4} md={3}>
+            <Grid item xs={12} sm={6} md={3}>
               <SnsLink
                 snsMediaEnum="twitter"
                 linkUrl={'https://twitter.com/_NIRANKEN'}
@@ -120,9 +120,9 @@ export const About: React.FC<AboutProps> = ({
             >
               <Card sx={{ maxWidth: 1080, m: 1, p: 1 }}>
                 <CardContent>
-                  <Box whiteSpace="pre-line">
+                  <Box whiteSpace="pre-line" textOverflow="auto">
                     {isLoading() ? (
-                      <CircularProgress />
+                      <CircularProgress suffix="self-introduction" />
                     ) : (
                       <Typography data-testid="self-introduction">
                         {aboutContent
@@ -137,7 +137,7 @@ export const About: React.FC<AboutProps> = ({
           </Grid>
         </Grid>
       </Box>
-      <Grid container direction="row" spacing={2} mt={8}>
+      <Grid container direction="row" spacing={2} mt={8} mb={8}>
         <Grid item md={6}>
           <Tweet />
         </Grid>

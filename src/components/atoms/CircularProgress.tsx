@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 
 interface CircularProgressBaseProps {
   useWindowHeight?: boolean;
+  suffix?: string;
 }
 
 type CircularProgressProps = CircularProgressBaseProps &
@@ -16,11 +17,14 @@ type CircularProgressProps = CircularProgressBaseProps &
 
 export const CircularProgress: React.FC<CircularProgressProps> = ({
   useWindowHeight = false,
+  suffix,
   ...props
 }) => {
   return (
     <Box
-      data-testid='circular-progress-box'
+      data-testid={
+        suffix ? `circular-progress-${suffix}` : 'circular-progress-box'
+      }
       sx={{
         p: 1,
         m: 1,
