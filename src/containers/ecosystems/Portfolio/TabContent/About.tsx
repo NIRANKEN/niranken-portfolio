@@ -79,6 +79,13 @@ export const About: React.FC<AboutProps> = ({
                 explanation={'つぶやきどころ'}
               />
             </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <SnsLink
+                snsMediaEnum="note"
+                linkUrl={'https://note.com/niranken'}
+                explanation={'日記 / 雑記'}
+              />
+            </Grid>
           </Grid>
         </Slide>
       </Box>
