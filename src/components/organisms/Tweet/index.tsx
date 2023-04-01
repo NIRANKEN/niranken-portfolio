@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -36,13 +35,6 @@ export const Tweet: React.FC<TweetProps> = () => {
           }}
         >
           <CardContent>
-            <Typography component="div">
-              <Box display="flex" alignItems="center">
-                <Box ml={1} fontSize="h6.fontSize" fontWeight="fontWeightBold">
-                  {'ツイート内容'}
-                </Box>
-              </Box>
-            </Typography>
             <a
               className="twitter-timeline"
               href="https://twitter.com/_NIRANKEN?ref_src=twsrc%5Etfw"

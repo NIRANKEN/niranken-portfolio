@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { SxProps, Theme } from '@mui/material/styles';
 
-export type SnsMediaEnum = 'youtube' | 'twitter' | 'qiita' | 'github';
+export type SnsMediaEnum = 'youtube' | 'twitter' | 'qiita' | 'github' | 'note';
 
 type SnsMediaMapValue = {
   imageSrc: string;
@@ -45,6 +45,14 @@ const snsMediaMap: { [P in SnsMediaEnum]: SnsMediaMapValue } = {
       mt: 4,
       height: 64,
       width: 64,
+    },
+  },
+  note: {
+    imageSrc: '/static/images/links/note-square.png',
+    sxProps: {
+      mt: 7,
+      height: 52,
+      width: 156,
     },
   },
 };

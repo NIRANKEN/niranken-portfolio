@@ -32,4 +32,10 @@ describe('SnsLink', () => {
     expect(screen.getByText('なにか説明')).toBeInTheDocument();
     // TODO: sizeのテスト
   });
+
+  it('should render note', () => {
+    renderComponent('note');
+    expect(screen.getByText('なにか説明')).toBeInTheDocument();
+    // TODO: sizeのテスト
+  });
 });
