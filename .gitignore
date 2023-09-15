@@ -25,3 +25,6 @@ yarn-error.log*
 # manually added by niranken
 /target
 /aws_configs
+
+.env
+.env.develop
