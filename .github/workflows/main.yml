@@ -1,8 +1,9 @@
 name: Build React on S3
 on:
   push:
-      branches:
-        - main
+    branches:
+      - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,6 +18,11 @@ jobs:
       - name: Install Dependencies
         run: yarn
 
+      - name: Create .env.develop
+        env:
+          REACT_APP_API_ENDPOINT: ${{ secrets.REACT_APP_API_ENDPOINT }}
+        run: echo REACT_APP_API_ENDPOINT=${REACT_APP_API_ENDPOINT} > .env.develop
+
       - name: Build
         run: yarn build:dev
 
@@ -24,5 +30,6 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          DEPLOY_S3_URL: ${{ secrets.DEPLOY_S3_URL }}
         run: |
-          aws s3 cp --recursive --region ap-northeast-1 build s3://deploy-niranken-portfolio
+          aws s3 cp --recursive --region ap-northeast-1 build ${DEPLOY_S3_URL}
