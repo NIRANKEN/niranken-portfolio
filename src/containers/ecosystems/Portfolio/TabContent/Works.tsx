@@ -33,7 +33,7 @@ export const Works: React.FC<WorksProps> = ({
     <>
       <Header
         iconName="works1"
-        title="人事さま向けWebアプリケーション開発者として"
+        title="Webアプリケーション開発者として(正社員/フリーランス)"
         explanation=""
       />
 
