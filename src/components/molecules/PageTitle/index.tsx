@@ -12,16 +12,16 @@ export const PageTitle: React.FC<PageTitleProps> = ({
   explanation,
 }: PageTitleProps) => {
   return (
-    <Box mt={2}>
+    <Box component="div" mt={2}>
       <Typography component="div">
-        <Box
+        <Box component="div"
           data-testid="title-box"
           fontWeight="fontWeightBold"
           fontSize="h4.fontSize"
         >
           {title}
         </Box>
-        <Box mt={4}>{explanation}</Box>
+        <Box component="div" mt={4}>{explanation}</Box>
       </Typography>
     </Box>
   );

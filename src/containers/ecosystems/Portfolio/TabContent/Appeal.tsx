@@ -14,15 +14,15 @@ type AppealProps = {
 export const Appeal: React.FC<AppealProps> = ({
   appealContent,
 }: AppealProps) => (
-  <Box mt={1}>
+  <Box component="div" mt={1}>
     <Grid container spacing={2}>
       <Grid item xs={12} sm={12} md={6}>
-        <Box mt={2}>
+        <Box component="div" mt={2}>
           <Typography component="div">
-            <Box fontWeight="fontWeightBold" fontSize="h6.fontSize">
+            <Box component="div" fontWeight="fontWeightBold" fontSize="h6.fontSize">
               {appealContent.appeal}
             </Box>
-            <Box mt={4} whiteSpace="pre-line">
+            <Box component="div" mt={4} whiteSpace="pre-line">
               {appealContent.detail}
             </Box>
           </Typography>
@@ -32,7 +32,7 @@ export const Appeal: React.FC<AppealProps> = ({
         {/* gifとか写真とか置けるスペースつくる？ */}
         <Card>
           <CardContent>
-            <Box whiteSpace="pre-line">
+            <Box component="div" whiteSpace="pre-line">
               <Typography>{`▼ ${appealContent.imageExplanation}`}</Typography>
             </Box>
           </CardContent>

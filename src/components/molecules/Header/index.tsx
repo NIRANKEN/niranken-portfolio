@@ -21,11 +21,11 @@ export const Header: React.FC<HeaderProps> = ({
   explanation,
 }: HeaderProps) => {
   return (
-    <Box mt={2}>
+    <Box component="div" mt={2}>
       <Typography component="div">
-        <Box display="flex" alignItems="center">
+        <Box component="div" display="flex" alignItems="center">
           {iconName ? mapping[iconName] : <></>}
-          <Box
+          <Box component="div"
             data-testid="title-box"
             ml={1}
             fontSize="h4.fontSize"
@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
             {title}
           </Box>
         </Box>
-        <Box mt={4} whiteSpace="pre-line">
+        <Box component="div" mt={4} whiteSpace="pre-line">
           {explanation}
         </Box>
       </Typography>

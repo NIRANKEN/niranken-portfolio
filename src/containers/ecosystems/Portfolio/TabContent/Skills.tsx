@@ -23,17 +23,17 @@ export const Skills: React.FC<SkillsProps> = ({
     {isLoading() ? (
       <CircularProgress />
     ) : (
-      <Box mt={1} mb={8} whiteSpace="pre-line">
+      <Box component="div" mt={1} mb={8} whiteSpace="pre-line">
         {skills.map((skill) => (
           <React.Fragment key={skill.id}>
             <Typography component="div">
-              <Box fontWeight="fontWeightBold" fontSize="h6.fontSize" mt={2}>
+              <Box component="div" fontWeight="fontWeightBold" fontSize="h6.fontSize" mt={2}>
                 {skill.title}
               </Box>
             </Typography>
             <Grid container direction="row" spacing={2}>
               <Grid item xs={12} sm={12} md={12} lg={8} xl={6}>
-                <Box
+                <Box component="div"
                   key={skill.id}
                   height={360}
                   px={2}

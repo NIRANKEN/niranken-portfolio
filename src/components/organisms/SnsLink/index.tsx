@@ -72,7 +72,7 @@ export const SnsLink: React.FC<SnsLinkProps> = ({
   return (
     <Card sx={{ maxWidth: 256 }}>
       <CardActionArea href={linkUrl} target="_blank">
-        <Box display="flex" alignItems="center" justifyContent="center">
+        <Box component="div" display="flex" alignItems="center" justifyContent="center">
           <CardMedia
             component="img"
             image={snsMediaMapValue.imageSrc}
@@ -82,7 +82,7 @@ export const SnsLink: React.FC<SnsLinkProps> = ({
         </Box>
         <CardContent>
           <Typography gutterBottom component="div">
-            <Box display="flex" alignItems="center" justifyContent="center">
+            <Box component="div" display="flex" alignItems="center" justifyContent="center">
               {explanation}
             </Box>
           </Typography>

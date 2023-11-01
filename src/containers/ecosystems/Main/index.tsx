@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import { Home } from '../Home';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,7 +12,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import PeopleIcon from '@mui/icons-material/People';
 import { MenuType } from './MenuType';
 import { MenuDrawer } from './MenuDrawer';
-import { useLocation } from 'react-router-dom';
+import { ThreejsPlayground } from '../ThreejsPlayground';
+import { Animation } from '@mui/icons-material';
 
 type PageTitle = {
   path: string;
@@ -32,6 +33,10 @@ const titles: PageTitle[] = [
     path: '/portfolio',
     title: 'ポートフォリオ',
   },
+  {
+    path: '/threejs-playground',
+    title: 'Three.jsテスト',
+  },
 ];
 
 export const Main: React.FC = () => {
@@ -41,9 +46,8 @@ export const Main: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const currentTitle = titles.find(
-      (t) => t.path === location.pathname
-    )?.title;
+    const currentTitle = titles.find((t) => t.path === location.pathname)
+      ?.title;
     if (currentTitle) {
       setTitle(currentTitle);
     }
@@ -58,6 +62,12 @@ export const Main: React.FC = () => {
       name: 'ポートフォリオ',
       Icon: PeopleIcon,
       PageComponent: Portfolio,
+    },
+    {
+      id: 'threejs-playground',
+      name: 'Three.jsテスト',
+      Icon: Animation,
+      PageComponent: ThreejsPlayground,
     },
   ];
 

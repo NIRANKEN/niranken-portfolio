@@ -70,7 +70,7 @@ export const Contact: React.FC<ContactProps> = ({
   return (
     <>
       <Header iconName="contact" title="連絡先" explanation="" />
-      <Box display="flex" alignItems="center">
+      <Box component="div" display="flex" alignItems="center">
         <Card sx={{ maxWidth: 450, height: 512, m: 1, p: 1 }}>
           <CardContent>
             <Grid container spacing={2}>

@@ -36,7 +36,7 @@ export const About: React.FC<AboutProps> = ({
   const [isAvatarRendered, setAvatarRendered] = useState<boolean>(false);
   return (
     <>
-      <Box my={8}>
+      <Box component="div" my={8}>
         <Slide
           direction="up"
           in={true}
@@ -88,10 +88,10 @@ export const About: React.FC<AboutProps> = ({
         </Slide>
       </Box>
       <Divider />
-      <Box mt={8}>
+      <Box component="div" mt={8}>
         <Header iconName="about" title="自己紹介・価値観" explanation="" />
       </Box>
-      <Box mt={2}>
+      <Box component="div" mt={2}>
         <Grid container direction="row" spacing={2}>
           <Grid item md={3}>
             <Slide
@@ -125,7 +125,7 @@ export const About: React.FC<AboutProps> = ({
             >
               <Card sx={{ maxWidth: 1080, m: 1, p: 1 }}>
                 <CardContent>
-                  <Box whiteSpace="pre-line" textOverflow="auto">
+                  <Box component="div" whiteSpace="pre-line" textOverflow="auto">
                     {isLoading() ? (
                       <CircularProgress suffix="self-introduction" />
                     ) : (

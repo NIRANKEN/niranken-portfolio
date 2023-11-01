@@ -12,7 +12,7 @@ export const App: React.FC = () => {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box flexGrow={1} display="flex" zIndex={1} overflow="hidden">
+        <Box component="div" flexGrow={1} display="flex" zIndex={1} overflow="hidden">
           <AppRoutes />
         </Box>
       </ThemeProvider>
