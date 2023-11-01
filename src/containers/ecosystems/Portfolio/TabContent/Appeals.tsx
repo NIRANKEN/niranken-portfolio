@@ -29,6 +29,6 @@ export const Appeals: React.FC<AppealsProps> = ({
         ))}
       </Grid>
     )}
-    <Box mb={8}></Box>
+    <Box component="div" mb={8}></Box>
   </>
 );

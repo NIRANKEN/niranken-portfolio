@@ -34,7 +34,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
 
   return (
     <Drawer anchor="left" open={open} onClose={handleCloseDrawer}>
-      <Box
+      <Box component="div"
         sx={{
           width: 250,
           flexGrow: 1,

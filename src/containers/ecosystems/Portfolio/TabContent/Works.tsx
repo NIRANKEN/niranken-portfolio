@@ -62,7 +62,7 @@ export const Works: React.FC<WorksProps> = ({
                   <TableCell align="left">{row.category}</TableCell>
                   <TableCell align="left">{row.work}</TableCell>
                   <TableCell align="left">
-                    <Box whiteSpace="pre-line">{row.detail}</Box>
+                    <Box component="div" whiteSpace="pre-line">{row.detail}</Box>
                   </TableCell>
                 </TableRow>
               ))}
@@ -72,7 +72,7 @@ export const Works: React.FC<WorksProps> = ({
       )}
 
       {/* TODO: works1, works2を別々のコンポーネントで分ける works1とworks2で共通のものは共通化する*/}
-      <Box mt={8} mb={8}>
+      <Box component="div" mt={8} mb={8}>
         <Header iconName="works2" title="個人的に作ったもの" explanation="" />
         <TableContainer component={Paper}>
           <Table
@@ -109,7 +109,7 @@ export const Works: React.FC<WorksProps> = ({
                     )}
                   </TableCell>
                   <TableCell align="left">
-                    <Box whiteSpace="pre-line">{row.detail}</Box>
+                    <Box component="div" whiteSpace="pre-line">{row.detail}</Box>
                   </TableCell>
                 </TableRow>
               ))}

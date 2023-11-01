@@ -63,7 +63,7 @@ export const Portfolio: React.FC = () => {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box component="div" sx={{ width: '100%' }}>
       <PageTitle title="にらんけんのポートフォリオ" explanation="" />
       <BasicTabs
         basicTabs={[

@@ -12,7 +12,7 @@ export const Home: React.FC<{}> = () => {
         explanation={`にらんけんのPlaygroundスペースです。
       ポートフォリオ置いてます。`}
       />
-      <Box sx={{ width: { xs: 320, sm: 480, md: 640, lg: 960 } }}>
+      <Box component="div" sx={{ width: { xs: 320, sm: 480, md: 640, lg: 960 } }}>
         <Card>
           <CardMedia
             data-testid="asciiqualium-gif"

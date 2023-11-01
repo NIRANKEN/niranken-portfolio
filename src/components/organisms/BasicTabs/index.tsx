@@ -24,8 +24,8 @@ export const BasicTabs: React.FC<BasicTabsType> = ({
   const maxValue = basicTabs.length - 1;
 
   return (
-    <Box mt={2} sx={{ width: '100%' }} position="relative">
-      <Box
+    <Box component="div" mt={2} sx={{ width: '100%' }} position="relative">
+      <Box component="div"
         sx={{
           borderBottom: 1,
           borderColor: 'divider',

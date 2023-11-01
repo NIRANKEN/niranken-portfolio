@@ -21,7 +21,7 @@ export const CircularProgress: React.FC<CircularProgressProps> = ({
   ...props
 }) => {
   return (
-    <Box
+    <Box component="div"
       data-testid={
         suffix ? `circular-progress-${suffix}` : 'circular-progress-box'
       }
