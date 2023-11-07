@@ -1,55 +1,55 @@
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { Canvas, MeshProps, useFrame } from '@react-three/fiber';
-import { useRef, useState, useTransition } from 'react';
-import {
-  Mesh,
-  BufferGeometry,
-  Material,
-  Object3DEventMap,
-  Group,
-  Vector3,
-} from 'three';
+import { useRef, useState } from 'react';
+import { Mesh, BufferGeometry, Material, Vector3 } from 'three';
 import { Model } from './Dog002';
-import { OrbitControls, PointerLockControls, Sky } from '@react-three/drei';
+import { PointerLockControls, Sky } from '@react-three/drei';
 import { Physics, RigidBody } from '@react-three/rapier';
 import { Player } from './Player';
 import { Ground } from './Ground';
+
 export const ThreejsPlayground: React.FC = () => {
-  // const [isPending, startTransition] = useTransition();
-  // const [model, setModel] = useState<JSX.Element | null>(null);
-
-  // const renderModel = () => {
-  //   startTransition(() => {
-  //     setModel(<Model position={[0, 0, 0]} />);
-  //   });
-  // };
-
+  const shadowOffset = 50;
   return (
     <Box component="div" width={'100%'} height={1024}>
-      <Canvas camera={{ fov: 45, position: [0, 0, 0] }}>
-        <directionalLight position={[0, 20, 0]} intensity={10} />
-        {/* <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          minPolarAngle={Math.PI / 2}
-          maxPolarAngle={Math.PI / 2}
-        /> */}
-        {/* <perspectiveCamera
-          fov={60}
-          aspect={window.innerWidth / window.innerHeight}
-          near={0.1}
-          far={100}
-        /> */}
+      <Box
+        component="div"
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          width: '10px',
+          height: '10px',
+          borderRadius: '50%',
+          // transform: 'translate3d(-50%, 50%, 0)',
+          border: '2px solid white',
+          zIndex: 2,
+        }}
+      />
+      <Canvas camera={{ fov: 45, position: [0, 0, 0] }} shadows>
+        <PointerLockControls />
+        <Sky sunPosition={[100, 10, 100]} />
+        <directionalLight
+          castShadow
+          position={[0, 20, 0]}
+          intensity={5}
+          shadow-mapSze={4096}
+          shadow-camera-top={shadowOffset}
+          shadow-camera-bottom={-shadowOffset}
+          shadow-camera-left={shadowOffset}
+          shadow-camera-right={-shadowOffset}
+        />
         <Physics gravity={[0, -9.8, 0]}>
           <Ground />
           <Player />
-          <Sky sunPosition={[100, 10, 100]} />
           <ThreeBox boxMeshProps={{ position: [0, 0.5, 0] }} />
-          <ModelWrapper />
+          <ModelWrapper position={[10, 0, -20]} />
+          <ModelWrapper position={[5, 0, -20]} />
+          <ModelWrapper position={[0, 0, -20]} />
+          <ModelWrapper position={[-5, 0, -20]} />
+          <ModelWrapper position={[-10, 0, -20]} />
         </Physics>
-        {/* <PointerLockControls /> */}
       </Canvas>
-      {/* <Button onClick={renderModel}>Render Model</Button> */}
     </Box>
   );
 };
@@ -58,34 +58,15 @@ type ThreeBoxProps = {
   boxMeshProps: MeshProps;
 };
 
-const ModelWrapper: React.FC = () => {
-  // const [clicked, click] = useState<boolean>(false);
-  // const [hovered, hover] = useState<boolean>(false);
+type ModelWrapperProps = {
+  position: [x: number, y: number, z: number] | undefined;
+};
+
+const ModelWrapper: React.FC<ModelWrapperProps> = ({ position }) => {
   const scale = new Vector3(0.25, 0.25, 0.25);
-  const position = new Vector3(0, 0, -5);
   return (
     <RigidBody>
-      <Model
-        // scale={scale.multiplyScalar(clicked ? 1.5 : 1.0)}
-        scale={scale}
-        // position{position.add(
-        //   hovered ? new Vector3(0, 0, 2) : new Vector3(0, 0, 0)
-        // )}
-        position={position}
-        rotation={[0, Math.PI, 0]}
-        // onClick={(_event) => click(!clicked)}
-        // onPointerOver={(_event) =>
-        //   // 1秒待つ
-        //   setTimeout(() => {
-        //     hover(true);
-        //   }, 200)
-        // }
-        // onPointerOut={(_event) =>
-        //   setTimeout(() => {
-        //     hover(false);
-        //   }, 200)
-        // }
-      />
+      <Model scale={scale} position={position} rotation={[0, Math.PI, 0]} />
     </RigidBody>
   );
 };

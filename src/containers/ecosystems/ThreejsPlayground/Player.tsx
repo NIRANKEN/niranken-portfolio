@@ -57,7 +57,7 @@ export const Player = () => {
   return (
     <>
       <RigidBody position={[0, 1, -2]} ref={playerRef} mass={1} lockRotations>
-        <mesh>
+        <mesh castShadow>
           <capsuleGeometry args={[0.75, 0.5]} />
         </mesh>
       </RigidBody>
