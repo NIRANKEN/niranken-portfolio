@@ -1,5 +1,5 @@
 import { useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
+import { useRef, useTransition } from 'react';
 import { usePersonControls } from './hook';
 import * as RAPIER from '@dimforge/rapier3d-compat';
 import { RapierRigidBody, RigidBody, useRapier } from '@react-three/rapier';
@@ -14,10 +14,11 @@ export const Player = () => {
   const playerRef = useRef<RapierRigidBody | null>(null);
   const { forward, backward, left, right, jump } = usePersonControls();
   const rapier = useRapier();
+  // const [isPending, startTransition] = useTransition();
 
   useFrame((state) => {
+    // startTransition(() => {
     if (!playerRef.current) return;
-
     const velocity = playerRef.current.linvel();
 
     frontVector.set(0, 0, Number(backward) - Number(forward));
@@ -52,11 +53,12 @@ export const Player = () => {
     // moving camera
     const { x, y, z } = playerRef.current.translation();
     state.camera.position.set(x, y, z);
+    // });
   });
 
   return (
     <>
-      <RigidBody position={[0, 1, -2]} ref={playerRef} mass={1} lockRotations>
+      <RigidBody position={[0, 1, -2]} ref={playerRef} mass={2} lockRotations>
         <mesh castShadow>
           <capsuleGeometry args={[0.75, 0.5]} />
         </mesh>

@@ -27,6 +27,9 @@ export const usePersonControls = () => {
   };
 
   useEffect(() => {
+    if (!document) {
+      return;
+    }
     const handleKeyDown = (e: KeyboardEvent) => {
       // e.codeがKey型のプロパティであるかどうかを確認する
       if (
