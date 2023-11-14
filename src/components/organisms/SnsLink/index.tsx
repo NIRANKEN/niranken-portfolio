@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { SxProps, Theme } from '@mui/material/styles';
 
-export type SnsMediaEnum = 'youtube' | 'twitter' | 'qiita' | 'github' | 'note';
+export type SnsMediaEnum = 'youtube' | 'qiita' | 'github' | 'note' | 'misskey';
 
 type SnsMediaMapValue = {
   imageSrc: string;
@@ -20,14 +20,6 @@ const snsMediaMap: { [P in SnsMediaEnum]: SnsMediaMapValue } = {
     sxProps: {
       mt: 6,
       height: 45,
-      width: 64,
-    },
-  },
-  twitter: {
-    imageSrc: '/static/images/links/Twitter social icons - circle - blue.png',
-    sxProps: {
-      mt: 4,
-      height: 64,
       width: 64,
     },
   },
@@ -55,6 +47,14 @@ const snsMediaMap: { [P in SnsMediaEnum]: SnsMediaMapValue } = {
       width: 156,
     },
   },
+  misskey: {
+    imageSrc: '/static/images/links/misskey.png',
+    sxProps: {
+      mt: 4,
+      height: 45,
+      width: 64,
+    },
+  }
 };
 
 type SnsLinkProps = {

@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Divider from '@mui/material/Divider';
-// import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Slide from '@mui/material/Slide';
 import Tooltip from '@mui/material/Tooltip';
@@ -11,7 +10,6 @@ import Typography from '@mui/material/Typography';
 import { CircularProgress } from 'components/atoms/CircularProgress';
 import { Header } from 'components/molecules/Header';
 import { SnsLink } from 'components/organisms/SnsLink';
-import { Tweet } from 'components/organisms/Tweet';
 import { AboutContent } from 'ducks/about/AboutContent';
 import { ContactData, SendContactMessageResult } from 'ducks/contact';
 import { afterRenderSlideChildren } from 'lib/afterRenderSlideChildren';
@@ -74,16 +72,16 @@ export const About: React.FC<AboutProps> = ({
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <SnsLink
-                snsMediaEnum="twitter"
-                linkUrl={'https://twitter.com/_NIRANKEN'}
-                explanation={'つぶやきどころ'}
+                snsMediaEnum="note"
+                linkUrl={'https://note.com/niranken'}
+                explanation={'日記 / 雑記'}
               />
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <SnsLink
-                snsMediaEnum="note"
-                linkUrl={'https://note.com/niranken'}
-                explanation={'日記 / 雑記'}
+                snsMediaEnum="misskey"
+                linkUrl={'https://misskey.io/@niranken'}
+                explanation={'つぶやきどころ'}
               />
             </Grid>
           </Grid>
@@ -145,9 +143,6 @@ export const About: React.FC<AboutProps> = ({
         </Grid>
       </Box>
       <Grid container direction="row" spacing={2} mt={8} mb={8}>
-        <Grid item md={6}>
-          <Tweet />
-        </Grid>
         <Grid item md={6}>
           <Contact
             sentContact={sentContact}

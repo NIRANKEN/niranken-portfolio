@@ -21,8 +21,8 @@ describe('SnsLink', () => {
     // TODO: sizeのテスト
   });
 
-  it('should render twitter', () => {
-    renderComponent('youtube');
+  it('should render misskey', () => {
+    renderComponent('misskey');
     expect(screen.getByText('なにか説明')).toBeInTheDocument();
     // TODO: sizeのテスト
   });
@@ -38,4 +38,5 @@ describe('SnsLink', () => {
     expect(screen.getByText('なにか説明')).toBeInTheDocument();
     // TODO: sizeのテスト
   });
+
 });
