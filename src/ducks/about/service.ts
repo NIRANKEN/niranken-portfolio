@@ -1,6 +1,3 @@
-import { apiUrl } from "lib/apiUrl";
+import { apiUrl } from 'lib/apiUrl';
 
-export const read = async (): Promise<Response> => fetch(`${apiUrl}/about`, {
-  mode: 'cors',
-  credentials: 'include'
-});
+export const read = async (): Promise<Response> => fetch(`${apiUrl}/about`, {});

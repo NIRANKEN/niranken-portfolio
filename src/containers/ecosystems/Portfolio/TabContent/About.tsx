@@ -125,7 +125,11 @@ export const About: React.FC<AboutProps> = ({
             >
               <Card sx={{ maxWidth: 1080, m: 1, p: 1 }}>
                 <CardContent>
-                  <Box component="div" whiteSpace="pre-line" textOverflow="auto">
+                  <Box
+                    component="div"
+                    whiteSpace="pre-line"
+                    textOverflow="auto"
+                  >
                     {isLoading() ? (
                       <CircularProgress suffix="self-introduction" />
                     ) : (
