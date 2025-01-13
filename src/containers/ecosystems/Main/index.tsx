@@ -12,8 +12,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import PeopleIcon from '@mui/icons-material/People';
 import { MenuType } from './MenuType';
 import { MenuDrawer } from './MenuDrawer';
-import { ThreejsPlayground } from '../ThreejsPlayground';
-import { Animation } from '@mui/icons-material';
 
 type PageTitle = {
   path: string;
@@ -32,10 +30,6 @@ const titles: PageTitle[] = [
   {
     path: '/portfolio',
     title: 'ポートフォリオ',
-  },
-  {
-    path: '/threejs-playground',
-    title: 'Three.jsテスト',
   },
 ];
 
@@ -62,12 +56,6 @@ export const Main: React.FC = () => {
       name: 'ポートフォリオ',
       Icon: PeopleIcon,
       PageComponent: Portfolio,
-    },
-    {
-      id: 'threejs-playground',
-      name: 'Three.jsテスト',
-      Icon: Animation,
-      PageComponent: ThreejsPlayground,
     },
   ];
 

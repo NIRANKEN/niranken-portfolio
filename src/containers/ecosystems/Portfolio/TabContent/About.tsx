@@ -61,7 +61,7 @@ export const About: React.FC<AboutProps> = ({
                 explanation={'勉強したことの記事'}
               />
             </Grid>
-            <Grid item xs={12} sm={6} md={3}>
+            {/* <Grid item xs={12} sm={6} md={3}>
               <SnsLink
                 snsMediaEnum="youtube"
                 linkUrl={
@@ -69,7 +69,7 @@ export const About: React.FC<AboutProps> = ({
                 }
                 explanation={'勉強したことの動画'}
               />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12} sm={6} md={3}>
               <SnsLink
                 snsMediaEnum="note"
